@@ -1,0 +1,95 @@
+body {
+	font-family: "latoregular";
+	background-color: #40b076;
+}
+
+a {
+	color: #40b076c7;
+}
+
+a:hover {
+	color: #40b076;
+}
+
+.email,
+.password {
+	position: relative;
+}
+
+.form {
+	height: 42px;
+	border: none;
+	border-radius: 4px;
+	font: inherit;
+	background-color: transparent;
+	outline: 2px solid #40b076;
+	width: 100%;
+}
+
+.label {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	transform: translate(10px, 10px);
+	transition: transform 0.25s;
+	color: #88878d;
+}
+
+.form:focus + .label,
+.form:valid + .label {
+	transform: translate(5px, -14px) scale(0.8);
+	color: #40b076;
+	padding-inline: 5px;
+	background-color: #fff;
+}
+
+.form:is(:focus, :valid) {
+	outline-color: #40b076;
+}
+
+.h4 {
+	font-size: 40px;
+	font-weight: 700;
+	font-family: "latoregular";
+	background-color: #000000d0;
+	color: transparent;
+	text-shadow: 0.5px 0.5px 2px #40b076;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	margin-bottom: 20px;
+}
+
+.btn-primary {
+	background-color: #40b076;
+}
+
+.btn-block {
+	border-radius: 5px;
+	height: 42px;
+}
+
+.hr-text {
+	line-height: 1em;
+	position: relative;
+	text-align: center;
+}
+
+.hr-text::after {
+	bottom: 0.7em;
+	padding: 0 0.5em;
+	content: attr(data-content);
+	position: relative;
+	display: inline-block;
+	line-height: 1.5em;
+	background-color: #fcfcfa;
+	font-size: 0.8rem;
+}
+
+@font-face {
+	font-family: "latoregular";
+	src: url("../font/lato-regular-webfont.woff2") format("woff2"),
+		url("../font/lato-regular-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}

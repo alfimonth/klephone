@@ -1,0 +1,19 @@
+.sidebar {
+	background-color: #40b076;
+}
+
+.btn-link {
+	color: #8bb6a0;
+}
+.btn-link:hover {
+	color: #40b076;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .bg {
+	background-color: #40b076;
+	color: rgb(226, 226, 226);
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .bg:hover {
+	color: white;
+}
