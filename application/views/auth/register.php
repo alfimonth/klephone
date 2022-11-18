@@ -13,29 +13,34 @@
                                     <div class="text-center mb-5">
                                         <h1 class="h4">Daftar</h1>
                                     </div>
-                                    <form class="center col-md-12">
+                                    <form class="center col-md-12" method="POST" action="<?= base_url('auth/register') ?>">
                                         <div class="email mb-4">
-                                            <input type="text" required class="form form-control" name="email" id="email" aria-describedby="emailHelp" autocomplete="none">
+                                            <input type="text" required class="form form-control" name="email" id="email" aria-describedby="emailHelp" value="<?= set_value('email') ?>">
                                             <label for="email" class="label">Email</label>
+                                            <?= form_error('email',  '<small class="text-danger">', '</small>') ?>
                                         </div>
                                         <div class="email mb-4">
-                                            <input type="text" required class="form form-control" name="fullname" id="email" aria-describedby="emailHelp" />
+                                            <input type="text" required class="form form-control" name="fullname" id="fullname" aria-describedby="emailHelp" value="<?= set_value('fullname') ?>" />
                                             <label for="fullname" class="label">Nama Lengkap</label>
+                                            <?= form_error('fullname',  '<small class="text-danger">', '</small>') ?>
                                         </div>
                                         <div class="email mb-4">
-                                            <input type="text" required class="form form-control" name="username" id="username" aria-describedby="emailHelp" />
+                                            <input type="text" required class="form form-control" name="name" id="username" aria-describedby="emailHelp" value="<?= set_value('name') ?>" />
                                             <label for="username" class="label">Username</label>
+                                            <?= form_error('name',  '<small class="text-danger">', '</small>') ?>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="password col-sm-6 mb-4 mb-sm-0">
                                                 <input type="password" required class="form form-control" name="password" id="password" />
                                                 <label for="password" class="label">Password</label>
+                                                <?= form_error('password',  '<small class="text-danger">', '</small>') ?>
                                             </div>
                                             <div class="password col-sm-6">
                                                 <input type="password" required class="form form-control" name="password2" id="password2" />
                                                 <label for="password2" class="label">Konfirmasi Password</label>
                                             </div>
+
                                         </div>
                                         <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                             Register

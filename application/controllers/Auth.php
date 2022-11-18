@@ -3,6 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('form_validation');
+    }
     public function index()
     {
         //jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan user 
@@ -46,6 +51,8 @@ class Auth extends CI_Controller
                         redirect('home');
                     }
                 } else {
+                    var_dump($user['password']);
+                    die;
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
                     redirect('auth');
                 }
@@ -61,17 +68,63 @@ class Auth extends CI_Controller
 
     public function register()
     {
-        $data['title'] = 'Login';
-        $this->load->view('templates/auth_header', $data);
-        $this->load->view('auth/register');
-        $this->load->view('templates/auth_footer');
+
+
+        $required = 'Kolom wajib diisi';
+
+        $this->form_validation->set_rules('name', 'Username', 'required|trim|min_length[3]|is_unique[user.name]', [
+            'required' => $required,
+            'is_unique' => 'Username sudah digunakan',
+            'min_length' => 'Username terlalu pendek'
+
+        ]);
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'required' => $required,
+            'valid_email' => 'Email tidak benar',
+            'is_unique' => 'Email sudah terdaftar'
+        ]);
+        $this->form_validation->set_rules('fullname', 'Nama', 'required|trim|min_length[3]', [
+            'required' => $required,
+            'min_length' => 'Nama terlalu pendek'
+
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+            'required' => $required,
+            'matches' => 'Konfirmasi Password salah',
+            'min_length' => 'Password terlalu pendek'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Register';
+            $this->load->view('templates/auth_header', $data);
+            $this->load->view('auth/register');
+            $this->load->view('templates/auth_footer');
+        } else {
+            $data = [
+                'name' => htmlspecialchars($this->input->post('name', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
+                'image' => 'default.jpg',
+
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'role_id' => 2,
+                'is_active' => 1,
+                'date_created' => time()
+            ];
+
+            $this->db->insert('user', $data); //pindah di model
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Akun berhasil dibuat, silahkan Login</div>');
+
+            redirect('auth');
+        }
     }
+
     public function logout()
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
-        $this->session->set_flashdata('pesan', '<div class="alert alert-message alert-success" role="alert">Berhasil logout</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Berhasil logout</div>');
 
         redirect('auth');
     }
