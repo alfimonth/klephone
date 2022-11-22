@@ -1,0 +1,54 @@
+.sidebar {
+	background-color: #40b076;
+}
+
+.btn-link {
+	color: #8bb6a0;
+}
+.btn-link:hover {
+	color: #40b076;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .bg {
+	background-color: #40b076;
+	color: rgb(226, 226, 226);
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .bg:hover {
+	color: white;
+}
+
+.opsi a {
+	margin: 2px auto;
+	display: block;
+	width: fit-content;
+}
+
+.table .center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.table td {
+	vertical-align: middle;
+}
+
+.img-product {
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.min-w {
+	width: fit-content;
+}
+
+.table .fit {
+	width: 10px;
+}
+.table .fit-2 {
+	width: 180px;
+}
+
+.table .right {
+	text-align: right;
+}

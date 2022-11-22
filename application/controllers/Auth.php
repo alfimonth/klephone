@@ -32,18 +32,23 @@ class Auth extends CI_Controller
     {
         $email = htmlspecialchars($this->input->post('email', true));
         $password = $this->input->post('password', true);
-        $user = $this->ModelUser->cekData(['email' => $email])->row_array(); //jika usernya ada 
-        if ($user) { //jika user sudah aktif 
-            if ($user['is_active'] == 1) { //cek password 
+        $user = $this->ModelUser->cekData(['email' => $email])->row_array();
+        //jika usernya ada 
+        if ($user) {
+            //jika user sudah aktif 
+            if ($user['is_active'] == 1) {
+                //cek password 
                 if (password_verify($password, $user['password'])) {
+
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
 
                     $this->session->set_userdata($data);
+                    // cek role
                     if ($user['role_id'] == 1) {
-                        redirect('home');
+                        redirect('dashboard');
                     } else {
                         if ($user['image'] == 'default.jpg') {
                             $this->session->set_flashdata('pesan', '<div class="alert alert-info alert-message" role="alert">Silahkan Ubah Profile Anda untuk Ubah Photo Profil</div>');
