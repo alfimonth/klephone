@@ -5,6 +5,7 @@ function base_url($param = '')
 {
 	return 'http://localhost/klephone/' . $param;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,9 +50,11 @@ function base_url($param = '')
 					<!-- 404 Error Text -->
 					<div class="text-center">
 						<div class="error mx-auto mt-5" data-text="404">404</div>
-						<p class="lead text-gray-800 mb-5">Page Not Found</p>
-						<p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-						<a href="<?= base_url() ?>">&larr; Back to home</a>
+						<p class="lead text-gray-800 mb-5">Halaman tidak ditemukan</p>
+						<p class="text-gray-500 mb-0">Itu seperti kamu menemukan sebuah glitch di dalam matrix...</p>
+
+						<a href="<?= base_url('back') ?>">&larr; Kembali</a>
+
 					</div>
 
 				</div>
@@ -64,7 +67,7 @@ function base_url($param = '')
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2020</span>
+						<span> &copy;2022 Klephone</span>
 					</div>
 				</div>
 			</footer>
