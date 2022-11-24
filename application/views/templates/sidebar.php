@@ -54,18 +54,11 @@
             <span>Produk</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Content</span>
+    <li class="nav-item <?= ($title == 'Suplay') ? 'active' : '' ?>">
+        <a class="nav-link" href=" <?= base_url('suplay') ?>">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Suplay</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-color.html">Penulis</a>
-                <a class="collapse-item" href="utilities-border.html">Penerbit</a>
-                <a class="collapse-item" href="utilities-animation.html">Kategori</a>
-            </div>
-        </div>
     </li>
     <li class="nav-item ">
         <a class="nav-link" href="index.html">
@@ -85,6 +78,15 @@
             </div>
         </div>
     </li>
+
+    <!-- Home -->
+    <li class="nav-item <?= ($title == 'Home') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url() ?>">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Home</span>
+        </a>
+    </li>
+
     <?php if (isset($user['name'])) : ?>
         <!-- Logout -->
         <li class="nav-item ">

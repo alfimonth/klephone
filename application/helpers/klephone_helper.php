@@ -6,17 +6,20 @@ function cek_login()
 
     if (!$ci->session->userdata('email')) {
         $ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Akses ditolak. Anda belum login!! </div>');
-        redirect('auth');
+        redirect('404');
     } else {
         $role_id = $ci->session->userdata('role_id');
         $id_user = $ci->session->userdata('id_user');
+    }
+    if ($role_id != 1) {
+        redirect('404');
     }
 }
 function cek_role()
 {
     $ci = get_instance();
 
-    if (!$ci->session->userdata('email')) {
+    if ($ci->session->userdata('role_id') != 1) {
         redirect('');
     } else {
         redirect('dashboard');

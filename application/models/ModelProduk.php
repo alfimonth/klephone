@@ -29,4 +29,17 @@ class ModelProduk extends CI_Model
         $this->db->join('brand', 'brand.id = produk.id_brand');
         return $this->db->get();
     }
+    public function joinBrandProdukWhere($where = '*')
+    {
+        //$this->db->select('buku.id_kategori,kategori.kategori');
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('brand', 'brand.id = produk.id_brand');
+        $this->db->where('produk.id=' . $where);
+        return $this->db->get();
+    }
+    public function updateProduk($a, $data = null)
+    {
+        $this->db->update('produk', $data, $a);
+    }
 }

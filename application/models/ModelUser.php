@@ -20,6 +20,13 @@ class ModelUser extends CI_Model
         $this->db->where($where);
         return $this->db->get();
     }
+    public function cekRole($where)
+    {
+        $this->db->select('role_id');
+        $this->db->from('user');
+        $this->db->where('email = ' . $where);
+        return $this->db->get();
+    }
     public function getUserLimit()
     {
         $this->db->select('*');

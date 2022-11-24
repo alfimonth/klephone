@@ -56,8 +56,6 @@ class Auth extends CI_Controller
                         redirect('home');
                     }
                 } else {
-                    var_dump($user['password']);
-                    die;
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
                     redirect('auth');
                 }

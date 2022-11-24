@@ -10,7 +10,12 @@ class Home extends CI_Controller
         $data['title'] = 'Home';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar');
+        $email = $this->session->userdata('role_id');
+        if ($email != null) {
+            if ($email == 1) {
+                $this->load->view('templates/sidebar');
+            }
+        }
         $this->load->view('templates/topbar');
         $this->load->view('home/index');
         $this->load->view('templates/footer');
