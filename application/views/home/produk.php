@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid " style="overflow:auto;">
     <?= $this->session->flashdata('pesan'); ?>
-    <div class="row">
+    <div class=" row">
         <div class="col-lg-12">
             <?php if (validation_errors()) { ?>
                 <div class="alert alert-danger" role="alert">
@@ -10,7 +10,8 @@
             <?= $this->session->flashdata('pesan'); ?>
 
             <!-- Page Heading -->
-            <a href="" class="btn btn-success mb-3" data-toggle="modal" data-target="#bukuBaruModal"><i class="fas fa-file-alt"></i> Tambah produk</a>
+            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah produk</a>
+            <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
                 <table class="table table-hover">
@@ -28,11 +29,15 @@
                         <?php foreach ($produk as $p) : ?>
                             <tr>
                                 <td class="center"><img class="img-product" src="<?= base_url('assets/img/upload/' . $p['img']) ?>" alt=""></td>
-                                <td scope="row"><?= $p['id_brand'] ?> <?= $p['tipe'] ?></td>
+                                <td scope="row"><?= $p['name'] ?> <?= $p['tipe'] ?></td>
                                 <td class="right px-md-5 fit-2"><?= $p['memory'] ?> GB</td>
                                 <td class="right px-md-5 fit"><?= $p['stok'] ?></td>
                                 <td class="fit pl-md-2">Rp</td>
-                                <td class="right pr-md-2 fit"><?= $p['harga'] ?></td>
+                                <?php
+                                $harga = number_format($p['harga'], 0, ',', '.');
+
+                                ?>
+                                <td class="right pr-md-2 fit"><?= $harga ?></td>
                                 <td class="opsi">
                                     <a href="" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
                                     <a href="<?= base_url('produk/hapus/') . $p['id']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= 'hp' . ' ' . $p['tipe']; ?> ?');" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a>

@@ -7,6 +7,10 @@ class ModelProduk extends CI_Model
     {
         return $this->db->get('produk');
     }
+    public function getBrand()
+    {
+        return $this->db->get('brand');
+    }
 
     public function simpanProduk($data = null)
     {
@@ -16,5 +20,13 @@ class ModelProduk extends CI_Model
     public function hapusProduk($where = null)
     {
         $this->db->delete('produk', $where);
+    }
+    public function joinBrandProduk($select = '*')
+    {
+        //$this->db->select('buku.id_kategori,kategori.kategori');
+        $this->db->select($select);
+        $this->db->from('produk');
+        $this->db->join('brand', 'brand.id = produk.id_brand');
+        return $this->db->get();
     }
 }

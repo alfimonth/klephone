@@ -1,0 +1,80 @@
+.sidebar {
+	background-color: #40b076;
+}
+
+.btn-link {
+	color: #8bb6a0;
+}
+.btn-link:hover {
+	color: #40b076;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .bg {
+	background-color: #40b076;
+	color: rgb(226, 226, 226);
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .bg:hover {
+	color: white;
+}
+
+.opsi a {
+	margin: 2px auto;
+	display: block;
+	width: fit-content;
+}
+
+.table .center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.table td {
+	vertical-align: middle;
+}
+
+.img-product {
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.min-w {
+	width: fit-content;
+}
+
+.table .fit {
+	width: 10px;
+}
+.table .fit-2 {
+	width: 180px;
+}
+
+.table .right {
+	text-align: right;
+}
+
+.select-file {
+	position: relative;
+	overflow: hidden;
+}
+
+.select-file input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: scale(2);
+	opacity: 0;
+	cursor: pointer;
+}
+
+.fa-camera {
+	color: #40b076;
+}
+
+.img-area img {
+	border: 2px solid #40b076;
+	border-radius: 10px 10px 0 0;
+	padding: 5px calc(50% - 75px);
+	max-height: 150px;
+	width: 100%;
+}
