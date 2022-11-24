@@ -28,8 +28,8 @@
 
 
     <!-- Brand  -->
-    <li class="nav-item <?= ($title == 'Kategori') ? 'active' : '' ?>">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item <?= ($title == 'Brand') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= 'brand' ?>">
             <i class="fas fa-fw fa-star"></i>
             <span>Brand</span>
         </a>

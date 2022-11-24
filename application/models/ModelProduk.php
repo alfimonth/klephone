@@ -17,6 +17,11 @@ class ModelProduk extends CI_Model
 
         $this->db->insert('produk', $data);
     }
+    public function simpanBrand($data = null)
+    {
+
+        $this->db->insert('brand', $data);
+    }
     public function hapusProduk($where = null)
     {
         $this->db->delete('produk', $where);
