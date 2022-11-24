@@ -76,6 +76,13 @@
                             <select name="brand" class="form-control form-control-user">
                                 <option value="">Pilih Brand</option>
                                 <option value="1">Samsung</option>
+                                <option value="2">Oppo</option>
+                                <option value="3">Realme</option>
+                                <option value="4">POCO</option>
+                                <option value="5">iPhone</option>
+                                <option value="6">Infinix</option>
+                                <option value="7">Redmi</option>
+                                <option value="8">Vivo</option>
                             </select>
                         </div>
                         <div class="form-group">
