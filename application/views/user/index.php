@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
+    
 
     <!-- Page Card -->
     <div class="card mb-3" style="max-width: 540px;">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="btn btn-info ml-3 my-3">
+        <div class="btn btn-success ml-3 my-3">
 					<a href="<?= base_url('user/edit'); ?>" class="text text-white"><i
 							class="fas fa-user-edit"></i> Ubah
 						Profil</a>
