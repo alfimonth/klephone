@@ -26,7 +26,7 @@
                     <tbody>
                         <?php foreach ($brand as $b) : ?>
                             <tr>
-                                <td class="center"><img class="img-product" src="<?= base_url('assets/img/upload/' . $b['logo']) ?>" alt=""></td>
+                                <td class="center"><img class="img-product" src="<?= base_url('assets/img/brand/' . $b['logo']) ?>" alt=""></td>
                                 <td scope="row"><?= $b['name'] ?></td>
                                 <td></td>
 
