@@ -11,6 +11,7 @@
 
             <!-- Page Heading -->
             <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah produk</a>
+            <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Suplai</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
@@ -77,3 +78,50 @@
             </div>
         </div>
     </div>
+    <!-- Suplai Modal-->
+    <div class="modal fade" id="suplaiModal" tabindex="-1" role="dialog" aria-labelledby="bukuBaruModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bukuBaruModalLabel">Suplai</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url('buku'); ?>" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select name="id_kategori" class="form-control form-control-user">
+                        <option value="">Pilih Produk</option>
+                            <?php foreach ($produk as $p) : ?>
+                            <option value="<?= $p['id'];?>"><?= $p['name'];?> <?= $p['tipe'];?></option>
+                            <?php endforeach; ?>
+                        
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="id_kategori" class="form-control form-control-user">
+                        <option value="">Pilih Supplier</option>
+                            <?php foreach ($kategori as $k) : ?>
+                            <option value="<?= $k['id'];?>"><?= $k['kategori'];?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control form-control-user" id="stok" name="stok" placeholder="Stok">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control form-control-user" id="harga" name="harga" placeholder="harga">
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i>Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End of Modal Tambah Mneu -->
+ 

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Suplay extends CI_Controller
+class Supplier extends CI_Controller
 {
 
     public function __construct()
@@ -13,12 +13,12 @@ class Suplay extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Suplay';
+        $data['title'] = 'Supplier';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('admin/index');
+        $this->load->view('sup/index');
         $this->load->view('templates/footer');
     }
 }

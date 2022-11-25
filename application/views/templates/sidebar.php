@@ -54,10 +54,10 @@
             <span>Produk</span>
         </a>
     </li>
-    <li class="nav-item <?= ($title == 'Suplay') ? 'active' : '' ?>">
-        <a class="nav-link" href=" <?= base_url('suplay') ?>">
-            <i class="fas fa-fw fa-box"></i>
-            <span>Suplay</span>
+    <li class="nav-item <?= ($title == 'Supplier') ? 'active' : '' ?>">
+        <a class="nav-link" href=" <?= base_url('supplier') ?>">
+            <i class="fas fa-fw fa-truck"></i>
+            <span>Supplier</span>
         </a>
     </li>
     <li class="nav-item ">
