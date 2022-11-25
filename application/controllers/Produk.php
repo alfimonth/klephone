@@ -154,4 +154,19 @@ class Produk extends CI_Controller
         $this->ModelProduk->hapusProduk($where);
         redirect('produk');
     }
+    public function detail(){
+        $data['produk'] = $this->ModelProduk->joinBrandProdukWhere($this->uri->segment(3))->result_array();
+        $data['id'] = $this->uri->segment(3);
+        $produk = $data['produk'][0];
+        $data['title'] = 'Detail Produk';
+        
+        
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('produk/detail');
+        $this->load->view('templates/footer');
+
+    }
 }

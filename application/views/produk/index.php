@@ -27,9 +27,10 @@
                     </thead>
                     <tbody>
                         <?php foreach ($produk as $p) : ?>
+                            
                             <tr>
-                                <td class="center"><img class="img-product" src="<?= base_url('assets/img/upload/' . $p['img']) ?>" alt=""></td>
-                                <td scope="row"><?= $p['name'] ?> <?= $p['tipe'] ?></td>
+                               <td class="center"> <a href="<?= base_url('produk/detail/') . $p['id']?>"><img class="img-product" src="<?= base_url('assets/img/upload/' . $p['img']) ?>" alt="">   </a></td>
+                                <td scope="row"><a href="<?= base_url('produk/detail/') . $p['id']?>"><?= $p['name'] ?> <?= $p['tipe'] ?></a></td>
                                 <td class="right px-md-5 fit-2"><?= $p['memory'] ?> GB</td>
                                 <td class="right px-md-5 fit"><?= $p['stok'] ?></td>
                                 <td class="fit pl-md-2">Rp</td>
