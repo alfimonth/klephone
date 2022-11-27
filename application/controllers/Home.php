@@ -9,6 +9,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Home';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['produk'] = $this->ModelProduk->joinBrandProduk("*")->result_array();
+
         $this->load->view('templates/header', $data);
         $email = $this->session->userdata('role_id');
         if ($email != null) {
