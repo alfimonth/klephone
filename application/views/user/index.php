@@ -1,10 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    
-
     <!-- Page Card -->
+    <div class=" col-md-12 mb-4"><?= $this->session->flashdata('pesan'); ?></div>
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
@@ -12,19 +9,19 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $user['email']; ?></h5>
-                    <p class="card-text"><?= $user['name']; ?></p>
+                    <h5 class="card-title"><?= $user['name']; ?></h5>
+                    <p class="card-text"><?= $user['email']; ?></p>
                     <p class="card-text"><small class="text-muted">Member since <?= date('d F Y', $user['date_created']); ?></small></p>
                 </div>
             </div>
         </div>
-        <div class="btn btn-success ml-3 my-3">
-					<a href="<?= base_url('user/edit'); ?>" class="text text-white"><i
-							class="fas fa-user-edit"></i> Ubah
-						Profil</a>
-				</div>
+
     </div>
-    
+
+    <a href="<?= base_url('user/edit'); ?>" class="btn btn-success ml-3 my-3"><i class="fas fa-user-edit"></i> Ubah
+        Profil</a>
+
+
 </div>
 <!-- /.container-fluid -->
 

@@ -6,18 +6,18 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //is_logged_in();
+        cek_login();
     }
 
     public function index()
     {
-        $data['title'] = 'My Profile';
+        $data['title'] = 'Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/index', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('user/index');
         $this->load->view('templates/footer');
     }
 
@@ -25,9 +25,9 @@ class User extends CI_Controller
     {
         $data['title'] = 'Edit Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->result_array();
-        
-   
-        
+
+
+
         //konfigurasi sebelum gambar diupload
         $config['upload_path'] = './assets/img/profile/';
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -44,7 +44,7 @@ class User extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/auth_header', $data);
-            $this->load->view('user/edit', );
+            $this->load->view('user/edit',);
             $this->load->view('templates/auth_footer');
         } else {
             if ($this->upload->do_upload('image')) {
@@ -54,17 +54,15 @@ class User extends CI_Controller
             } else { //foto lama
                 $gambar = $this->input->post('old-pict', TRUE);
             }
-            
+
             $data = [
                 'name' => $this->input->post('name', true),
                 'email' => $this->input->post('email', true),
                 'image' => $gambar
             ];
-
-
-           
             $this->ModelUser->updateProfile(['id' => $this->input->post('id')], $data);
-       redirect('user');
-     }
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Perubahan Berhasil</div>');
+            redirect('user');
+        }
     }
 }

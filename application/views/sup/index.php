@@ -10,29 +10,27 @@
             <?= $this->session->flashdata('pesan'); ?>
 
             <!-- Page Heading -->
-            <a href="<?= base_url('brand/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah brand</a>
+            <a href="<?= base_url('brand/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah Supplier</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" class="fit-img center">Logo</th>
-                            <th scope="col">Brand</th>
-                            <th scope="col" class="center">Stok</th>
-                            <th scope="col" class="center">Opsi</th>
+                            <th scope="col">Supplier</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col">Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($brand as $b) : ?>
+                        <?php foreach ($sup as $s) : ?>
                             <tr>
-                                <td class="center"><img class="img-product" src="<?= base_url('assets/img/brand/' . $b['logo']) ?>" alt=""></td>
-                                <td scope="row"><?= $b['name'] ?></td>
-                                <td></td>
-
-                                <!-- <td class="right px-md-5 fit"><?= $b['stok'] ?></td> -->
+                                <td scope="row"><?= $s['nama'] ?></td>
+                                <td scope="row"><?= $s['alamat'] ?></td>
+                                <td scope="row"><?= $s['total_sup'] ?></td>
                                 <td class="opsi">
-                                    <a href="<?= base_url('produk/edit/') . $b['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
+                                    <a href="<?= base_url('produk/edit/') . $s['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
                                     <a href="#" data-toggle="modal" data-target="#hapusBrandModal" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a>
                                 </td>
                             </tr>

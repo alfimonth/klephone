@@ -15,16 +15,8 @@
                                 </div>
 
                                 <form class="center col-md-12" method="POST" action="" enctype="multipart/form-data">
-                                    <?php $p = $produk[0];
-
-                                    ?>
-
-
-
+                                    <?php $p = $produk[0]; ?>
                                     <input type="hidden" required class="form form-control" name="id" id="id" value="<?= $id ?>" />
-
-
-
                                     <div class="email mb-4">
                                         <select name="brand" class="form form-control" id="brand">
                                             <option value=''>Pilih Brand</option>

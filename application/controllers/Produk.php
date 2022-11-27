@@ -81,6 +81,7 @@ class Produk extends CI_Controller
             ];
 
             $this->ModelProduk->simpanProduk($data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Produk baru ditambahkan</div>');
             redirect('produk');
         }
     }
@@ -145,6 +146,7 @@ class Produk extends CI_Controller
                 'img' => $gambar
             ];
             $this->ModelProduk->updateProduk(['id' => $this->input->post('id')], $data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Perubahan berhasil</div>');
             redirect('produk');
         }
     }
@@ -152,21 +154,20 @@ class Produk extends CI_Controller
     {
         $where = ['id' => $this->uri->segment(3)];
         $this->ModelProduk->hapusProduk($where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Produk berhasil dihapus</div>');
         redirect('produk');
     }
-    public function detail(){
+    public function detail()
+    {
         $data['produk'] = $this->ModelProduk->joinBrandProdukWhere($this->uri->segment(3))->result_array();
         $data['id'] = $this->uri->segment(3);
         $produk = $data['produk'][0];
         $data['title'] = 'Detail Produk';
-        
-        
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
         $this->load->view('produk/detail');
         $this->load->view('templates/footer');
-
     }
 }

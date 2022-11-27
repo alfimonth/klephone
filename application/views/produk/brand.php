@@ -1,5 +1,4 @@
 <div class="container-fluid " style="overflow:auto;">
-    <?= $this->session->flashdata('pesan'); ?>
     <div class=" row">
         <div class="col-lg-12">
             <?php if (validation_errors()) { ?>
@@ -19,7 +18,7 @@
                         <tr>
                             <th scope="col" class="fit-img center">Logo</th>
                             <th scope="col">Brand</th>
-                            <th scope="col" class="center">Stok</th>
+                            <th scope="col" class="center">Jumlah Tipe</th>
                             <th scope="col" class="center">Opsi</th>
                         </tr>
                     </thead>
@@ -28,12 +27,11 @@
                             <tr>
                                 <td class="center"><img class="img-product" src="<?= base_url('assets/img/brand/' . $b['logo']) ?>" alt=""></td>
                                 <td scope="row"><?= $b['name'] ?></td>
-                                <td></td>
+                                <td scope="row" class="center"><?= $b['total_tipe'] ?></td>
 
-                                <!-- <td class="right px-md-5 fit"><?= $b['stok'] ?></td> -->
                                 <td class="opsi">
-                                    <a href="<?= base_url('produk/edit/') . $b['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                    <a href="#" data-toggle="modal" data-target="#hapusBrandModal" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a>
+                                    <a href="<?= base_url('brand/edit/') . $b['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
+                                    <a href="#" class="badge badge-danger hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash"></i> hapus</a>
                                 </td>
                             </tr>
 
@@ -51,7 +49,7 @@
 
     </div>
     <!-- End of Main Content -->
-    <!-- Logout Modal-->
+    <!-- Hapus Modal-->
     <div class="modal fade" id="hapusBrandModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -61,10 +59,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Apakah anda yakin akan menghapus brand <?= $b['name'] ?> ?</div>
+                <div class="modal-body">Apakah anda yakin akan menghapus brand <span id="dihapus"></span> ?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-                    <a class="btn btn-danger" href="<?= base_url('brand/hapus/') . $b['id']; ?> ">Yakin</a>
+                    <a class="btn btn-danger" id="linkHapus">Yakin</a>
                 </div>
             </div>
         </div>

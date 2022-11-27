@@ -15,6 +15,7 @@ class Supplier extends CI_Controller
     {
         $data['title'] = 'Supplier';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['sup'] = $this->ModelSup->getSup()->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');

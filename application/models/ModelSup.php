@@ -1,12 +1,17 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class ModelProduk extends CI_Model
+class ModelSup extends CI_Model
 {
-    public function getProduk()
+    public function getSup()
     {
-        return $this->db->get('produk');
+        return $this->db->get('supplier');
     }
+
+
+
+
+
     public function getBrand()
     {
         return $this->db->get('brand');
@@ -25,17 +30,6 @@ class ModelProduk extends CI_Model
     public function hapusProduk($where = null)
     {
         $this->db->delete('produk', $where);
-    }
-    public function hapusBrand($where = null)
-    {
-        $this->db->delete('brand', $where);
-    }
-    public function getBrandWhere($where = null)
-    {
-        $this->db->select('*');
-        $this->db->from('brand');
-        $this->db->where('id=' . $where);
-        return $this->db->get();
     }
     public function joinBrandProduk($select = '*')
     {
@@ -57,31 +51,5 @@ class ModelProduk extends CI_Model
     public function updateProduk($a, $data = null)
     {
         $this->db->update('produk', $data, $a);
-    }
-    public function updateBrand($a, $data = null)
-    {
-        $this->db->update('brand', $data, $a);
-    }
-    public function getBrandTipe()
-    {
-        $this->db->select('*');
-        $this->db->from('brand');
-        $brand = $this->db->get()->result_array();
-        $total = [];
-        $i = 0;
-        foreach ($brand as $b) {
-            $n = 0;
-            $this->db->select('id');
-            $this->db->from('produk');
-            $this->db->where('id_brand=' . $b['id']);
-            $produk = $this->db->get()->result_array();
-
-            foreach ($produk as $p) {
-                $n++;
-            }
-            $brand[$i]['total_tipe'] = $n;
-            $i++;
-        }
-        return $brand;
     }
 }
