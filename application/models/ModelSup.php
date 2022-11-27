@@ -7,6 +7,16 @@ class ModelSup extends CI_Model
     {
         return $this->db->get('supplier');
     }
+    public function simpanSup($data = null)
+    {
+
+        $this->db->insert('supplier', $data);
+    }
+
+    public function hapusSup($where = null)
+    {
+        $this->db->delete('supplier', $where);
+    }
 
 
 
@@ -17,20 +27,15 @@ class ModelSup extends CI_Model
         return $this->db->get('brand');
     }
 
-    public function simpanProduk($data = null)
-    {
 
-        $this->db->insert('produk', $data);
-    }
+
+
     public function simpanBrand($data = null)
     {
 
         $this->db->insert('brand', $data);
     }
-    public function hapusProduk($where = null)
-    {
-        $this->db->delete('produk', $where);
-    }
+
     public function joinBrandProduk($select = '*')
     {
         //$this->db->select('buku.id_kategori,kategori.kategori');
