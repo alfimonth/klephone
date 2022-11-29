@@ -12,15 +12,30 @@ class Produk extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Produk';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['produk'] = $this->ModelProduk->joinBrandProduk("Produk.id,produk.img,brand.name,produk.tipe,produk.memory,produk.harga,produk.stok")->result_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('produk/index');
-        $this->load->view('templates/footer');
+        // validasi
+
+        $this->form_validation->set_rules('id_produk', 'id_produk', 'required', [
+            'required' => 'Harap pilih Produk',
+        ]);
+        $this->form_validation->set_rules('id_sup', 'id_sup', 'required', [
+            'required' => 'Harap pilih Supplier',
+        ]);
+
+        if ($this->form_validation->run() == false) {
+
+            $data['title'] = 'Produk';
+            $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+            $data['produk'] = $this->ModelProduk->joinBrandProduk("Produk.id,produk.img,brand.name,produk.tipe,produk.memory,produk.harga,produk.stok")->result_array();
+            $data['sup'] = $this->ModelSup->getSup()->result_array();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar');
+            $this->load->view('produk/index');
+            $this->load->view('templates/footer');
+        } else {
+        }
     }
     public function tambah()
     {
@@ -160,8 +175,8 @@ class Produk extends CI_Controller
     public function detail()
     {
         $data['produk'] = $this->ModelProduk->joinBrandProdukWhere($this->uri->segment(3))->result_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['id'] = $this->uri->segment(3);
-        $produk = $data['produk'][0];
         $data['title'] = 'Detail Produk';
 
         $this->load->view('templates/header', $data);

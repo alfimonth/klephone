@@ -60,8 +60,8 @@
             <span>Supplier</span>
         </a>
     </li>
-    <li class="nav-item ">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item <?= ($title == 'Costumer') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('costumer') ?>">
             <i class="fas fa-fw fa-book"></i>
             <span>Costumer</span>
         </a>

@@ -1,16 +1,17 @@
 <div class="container-fluid " style="overflow:auto;">
     <div class=" row">
         <div class="col-lg-12">
+
             <?php if (validation_errors()) { ?>
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger alert-message" role="alert">
                     <?= validation_errors(); ?>
                 </div>
             <?php } ?>
             <?= $this->session->flashdata('pesan'); ?>
 
             <!-- Page Heading -->
-            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah produk</a>
-            <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Suplai</a>
+            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-plus-circle"></i> Tambah produk</a>
+            <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3"><i class="fas fa-truck"></i> Suplai</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
@@ -92,10 +93,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url('buku'); ?>" method="post" enctype="multipart/form-data">
+                <form action="" method="post">
                     <div class="modal-body">
                         <div class="form-group">
-                            <select name="id_kategori" class="form-control form-control-user">
+                            <select name="id_produk" class="form-control form-control-user">
                                 <option value="">Pilih Produk</option>
                                 <?php foreach ($produk as $p) : ?>
                                     <option value="<?= $p['id']; ?>"><?= $p['name']; ?> <?= $p['tipe']; ?></option>
@@ -104,10 +105,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <select name="id_kategori" class="form-control form-control-user">
+                            <select name="id_sup" class="form-control form-control-user">
                                 <option value="">Pilih Supplier</option>
-                                <?php foreach ($kategori as $k) : ?>
-                                    <option value="<?= $k['id']; ?>"><?= $k['kategori']; ?></option>
+                                <?php foreach ($sup as $p) : ?>
+                                    <option value="<?= $p['id']; ?>"><?= $p['name']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -115,7 +116,7 @@
                             <input type="number" class="form-control form-control-user" id="stok" name="stok" placeholder="Stok">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control form-control-user" id="harga" name="harga" placeholder="harga">
+                            <input type="number" class="form-control form-control-user" id="harga" name="harga" placeholder="Harga">
                         </div>
 
                     </div>
