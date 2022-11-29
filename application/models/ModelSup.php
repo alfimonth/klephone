@@ -17,44 +17,15 @@ class ModelSup extends CI_Model
     {
         $this->db->delete('supplier', $where);
     }
-
-
-
-
-
-    public function getBrand()
+    public function getSupWhere($where = '*')
     {
-        return $this->db->get('brand');
-    }
-
-
-
-
-    public function simpanBrand($data = null)
-    {
-
-        $this->db->insert('brand', $data);
-    }
-
-    public function joinBrandProduk($select = '*')
-    {
-        //$this->db->select('buku.id_kategori,kategori.kategori');
-        $this->db->select($select);
-        $this->db->from('produk');
-        $this->db->join('brand', 'brand.id = produk.id_brand');
-        return $this->db->get();
-    }
-    public function joinBrandProdukWhere($where = '*')
-    {
-        //$this->db->select('buku.id_kategori,kategori.kategori');
         $this->db->select('*');
-        $this->db->from('produk');
-        $this->db->join('brand', 'brand.id = produk.id_brand');
-        $this->db->where('produk.id=' . $where);
+        $this->db->from('supplier');
+        $this->db->where('id=' . $where);
         return $this->db->get();
     }
-    public function updateProduk($a, $data = null)
+    public function updateSup($a, $data = null)
     {
-        $this->db->update('produk', $data, $a);
+        $this->db->update('supplier', $data, $a);
     }
 }

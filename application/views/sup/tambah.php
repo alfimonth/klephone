@@ -36,9 +36,9 @@
                                         <?= form_error('email',  '<small class="text-danger">', '</small>') ?>
                                     </div>
                                     <div class="email mb-4">
-                                        <textarea type="text" required class="form form-control" name="keterangan" id="keterangan" aria-describedby="emailHelp"><?= set_value('keterangan') ?></textarea>
-                                        <label for="keterangan" class="label">Keterangan</label>
-                                        <?= form_error('keterangan',  '<small class="text-danger">', '</small>') ?>
+                                        <textarea type="text" class="form form-control" name="catatan" id="catatan" aria-describedby="emailHelp"><?= set_value('catatan') ?></textarea>
+                                        <label for="catatan" class="label">Catatan</label>
+                                        <?= form_error('catatan',  '<small class="text-danger">', '</small>') ?>
                                     </div>
 
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">

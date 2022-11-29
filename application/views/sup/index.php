@@ -1,9 +1,7 @@
 <div class="container-fluid " style="overflow:auto;">
+    <?= $this->session->flashdata('pesan'); ?>
     <div class=" row">
         <div class="col-lg-12">
-
-            <?= $this->session->flashdata('pesan'); ?>
-
             <!-- Page Heading -->
             <a href="<?= base_url('supplier/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah Supplier</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
@@ -17,7 +15,8 @@
                             <!-- <th scope="col">Total Suplai</th> -->
                             <th scope="col">Telepon</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Opsi</th>
+                            <th scope="col">Catatan</th>
+                            <th scope="col" class="center">Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +26,7 @@
                                 <td scope="row"><?= $s['alamat'] ?></td>
                                 <td scope="row"><?= $s['tlp'] ?></td>
                                 <td scope="row"><?= $s['email'] ?></td>
+                                <td scope="row"><?= $s['catatan'] ?></td>
                                 <td class="opsi">
                                     <a href="<?= base_url('supplier/edit/') . $s['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
                                     <a class="badge badge-danger hapus-sup" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $s['name'] ?>" data-id="<?= $s['id'] ?>"><i class="fas fa-trash"></i> hapus</a>
