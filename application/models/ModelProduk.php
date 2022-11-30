@@ -7,6 +7,15 @@ class ModelProduk extends CI_Model
     {
         return $this->db->get('produk');
     }
+    public function totalStok()
+    {
+        $produk = $this->getProduk()->result_array();
+        $stok = 0;
+        foreach ($produk as $p) {
+            $stok += intval($p['stok']);
+        }
+        return $stok;
+    }
     public function getBrand()
     {
         return $this->db->get('brand');
