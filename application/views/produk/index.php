@@ -113,10 +113,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control form-control-user" id="stok" name="stok" placeholder="Stok">
+                            <input type="number" required class="form-control form-control-user" id="stok" name="stok" placeholder="Stok">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control form-control-user" id="harga" name="harga" placeholder="Harga">
+                            <input type="number" required class="form-control form-control-user" id="harga" name="harga" placeholder="Harga">
                         </div>
 
                     </div>

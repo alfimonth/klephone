@@ -11,6 +11,13 @@ class ModelProduk extends CI_Model
     {
         return $this->db->get('brand');
     }
+    public function getStok($where)
+    {
+        $this->db->select('produk.stok');
+        $this->db->from('produk');
+        $this->db->where('id=' . $where);
+        return $this->db->get();
+    }
 
     public function simpanProduk($data = null)
     {

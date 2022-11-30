@@ -19,11 +19,7 @@
                                             <label for="email" class="label">Email</label>
                                             <?= form_error('email',  '<small class="text-danger">', '</small>') ?>
                                         </div>
-                                        <div class="email mb-4">
-                                            <input type="text" required class="form form-control" name="fullname" id="fullname" aria-describedby="emailHelp" value="<?= set_value('fullname') ?>" />
-                                            <label for="fullname" class="label">Nama Lengkap</label>
-                                            <?= form_error('fullname',  '<small class="text-danger">', '</small>') ?>
-                                        </div>
+
                                         <div class="email mb-4">
                                             <input type="text" required class="form form-control" name="name" id="username" aria-describedby="emailHelp" value="<?= set_value('name') ?>" />
                                             <label for="username" class="label">Username</label>

@@ -86,11 +86,7 @@ class Auth extends CI_Controller
             'valid_email' => 'Email tidak benar',
             'is_unique' => 'Email sudah terdaftar'
         ]);
-        $this->form_validation->set_rules('fullname', 'Nama', 'required|trim|min_length[3]', [
-            'required' => $required,
-            'min_length' => 'Nama terlalu pendek'
 
-        ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
             'required' => $required,
             'matches' => 'Konfirmasi Password salah',
