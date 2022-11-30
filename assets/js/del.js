@@ -38,3 +38,13 @@ $(function(){
         document.querySelector('#linkHapus').href = u+id;
     });
 });
+$(function(){
+    $('.hapus-user').on('click', function(){
+        const id = $(this).data('id');
+        const nama = $(this).data('nama');
+        var u = 'http://localhost/klephone/user/hapus/'
+
+        $('#dihapus').html(nama);
+        document.querySelector('#linkHapus').href = u+id;
+    });
+});

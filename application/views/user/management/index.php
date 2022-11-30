@@ -24,13 +24,17 @@
                             <tr>
                                 <td class="center"> <img class="img-product" src="<?= base_url('assets/img/profile/' . $u['image']) ?>" alt=""> </td>
                                 <td scope="row"><?= $u['name'] ?></td>
-                                <td scope="row"><?= $u['role_id'] ?></td>
+                                <td scope="row"><?= ($u['role_id'] == 1) ? 'Admin' : 'Member' ?></td>
                                 <td scope="row"><?= $u['email'] ?></td>
                                 <td>.....</td>
 
                                 <td class="opsi">
-                                    <a href="<?= base_url('costumer/edit/') . $u['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                    <a class="badge badge-danger hapus-cos" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $u['name'] ?>" data-id="<?= $u['id'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                    <?php if ($u['id'] != 1) { ?>
+                                        <a href="<?= base_url('user/hapus/') . $u['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit role</a>
+                                        <a class="badge badge-danger hapus-user  " href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $u['name'] ?>" data-id="<?= $u['id'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                    <?php } else { ?>
+                                        <a class="badge badge-secondary">Cannot Modify</a>
+                                    <?php  } ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
