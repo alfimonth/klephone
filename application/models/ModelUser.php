@@ -38,4 +38,24 @@ class ModelUser extends CI_Model
     {
         $this->db->update('user', $data, $a);
     }
+
+    // management
+    public function getUser()
+    {
+        return $this->db->get('user');
+    }
+    public function simpanUser($data = null)
+    {
+
+        $this->db->insert('user', $data);
+    }
+
+    public function hapusUser($where = null)
+    {
+        $this->db->delete('user', $where);
+    }
+    public function updateUser($a, $data = null)
+    {
+        $this->db->update('user', $data, $a);
+    }
 }

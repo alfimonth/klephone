@@ -20,6 +20,17 @@ class User extends CI_Controller
         $this->load->view('user/index');
         $this->load->view('templates/footer');
     }
+    public function management()
+    {
+        $data['title'] = 'Account';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['ac'] = $this->ModelUser->getUser()->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('user/management/index');
+        $this->load->view('templates/footer');
+    }
 
     public function edit()
     {

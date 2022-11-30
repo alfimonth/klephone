@@ -75,7 +75,6 @@ class ModelProduk extends CI_Model
             $this->db->from('produk');
             $this->db->where('id_brand=' . $b['id']);
             $produk = $this->db->get()->result_array();
-
             foreach ($produk as $p) {
                 $n++;
             }

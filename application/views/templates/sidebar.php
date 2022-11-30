@@ -66,7 +66,13 @@
             <span>Costumer</span>
         </a>
     </li>
-    <li class="nav-item <?= ($title == 'Explore') ? 'active' : '' ?>">
+    <li class="nav-item <?= ($title == 'Account') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('user/management') ?>">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Account</span>
+        </a>
+    </li>
+    <!-- <li class="nav-item <?= ($title == 'Account') ? 'active' : '' ?>">
         <a class="nav-link collapsed" href="index.html" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
             <i class="fas fa-fw fa-user"></i>
             <span>Account</span>
@@ -77,7 +83,7 @@
                 <a class="collapse-item" href="cards.html">Member</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Home -->
     <li class="nav-item <?= ($title == 'Home') ? 'active' : '' ?>">
