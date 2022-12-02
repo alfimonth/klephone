@@ -95,40 +95,57 @@
         <div class="col-xl-6 col-lg-7">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
+                    <div class="row">
+                        <div class="col-9">
+                            <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
+                        </div>
+                        <div class="col-3">
+                            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success "><i class="fas fa-plus-circle"></i> Transaksi</a>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Customer</th>
-                                    <th>Pruduk</th>
-                                    <th>Tanggal</th>
-                                    <th>Harga</th>
+                                    <th>Supplier</th>
+                                    <th>Alamat</th>
+                                    <th>Telepon</th>
+                                    <th>Email</th>
+                                    <th>Catatan</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <?php foreach ($sup as $s) : ?>
+                                    <tr>
+                                        <td scope="row"><?= $s['name'] ?></td>
+                                        <td scope="row"><?= $s['alamat'] ?></td>
+                                        <td scope="row"><?= $s['tlp'] ?></td>
+                                        <td scope="row"><?= $s['email'] ?></td>
+                                        <td scope="row"><?= $s['catatan'] ?></td>
+                                    </tr>
+
+
+                                <?php endforeach; ?>
+
+                            </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Customer</th>
-                                    <th>Pruduk</th>
-                                    <th>Tanggal</th>
-                                    <th>Harga</th>
+                                    <th>Supplier</th>
+                                    <th>Alamat</th>
+                                    <th>Telepon</th>
+                                    <th>Email</th>
+                                    <th>Catatan</th>
                                 </tr>
                             </tfoot>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Ruwayat Suplai -->
         <div class="col-xl-6 col-lg-7">
             <div class="card shadow mb-4">
@@ -140,32 +157,21 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Supplier</th>
+                                    <th>Alamat</th>
+                                    <th>Telepon</th>
+                                    <th>Email</th>
+                                    <th>Catatan</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($produk as $p) : ?>
-
+                                <?php foreach ($sup as $s) : ?>
                                     <tr>
-                                        <td class="center"> <a href="<?= base_url('produk/detail/') . $p['id'] ?>"><img class="img-product" src="<?= base_url('assets/img/upload/' . $p['img']) ?>" alt=""> </a></td>
-                                        <td scope="row"><a href="<?= base_url('produk/detail/') . $p['id'] ?>"><?= $p['name'] ?> <?= $p['tipe'] ?></a></td>
-                                        <td class="right px-md-5 fit-2"><?= $p['memory'] ?> GB</td>
-                                        <td class="right px-md-5 fit"><?= $p['stok'] ?></td>
-                                        <td class="fit pl-md-2">Rp</td>
-                                        <?php
-                                        $harga = number_format($p['harga'], 0, ',', '.');
-
-                                        ?>
-                                        <td class="right pr-md-2 fit"><?= $harga ?></td>
-                                        <td class="opsi">
-                                            <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                            <a href="<?= base_url('produk/hapus/') . $p['id']; ?> " href="#" data-toggle="modal" data-target="#hapusModal" class="badge badge-danger"><i class="fas fa-trash"></i> hapus</a>
-                                        </td>
+                                        <td scope="row"><?= $s['name'] ?></td>
+                                        <td scope="row"><?= $s['alamat'] ?></td>
+                                        <td scope="row"><?= $s['tlp'] ?></td>
+                                        <td scope="row"><?= $s['email'] ?></td>
+                                        <td scope="row"><?= $s['catatan'] ?></td>
                                     </tr>
 
 
@@ -174,12 +180,11 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Supplier</th>
+                                    <th>Alamat</th>
+                                    <th>Telepon</th>
+                                    <th>Email</th>
+                                    <th>Catatan</th>
                                 </tr>
                             </tfoot>
                         </table>
