@@ -28,8 +28,8 @@
                                 <td scope="row"><?= $s['email'] ?></td>
                                 <td scope="row"><?= $s['catatan'] ?></td>
                                 <td class="opsi">
-                                    <a href="<?= base_url('supplier/edit/') . $s['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                    <a class="badge badge-danger hapus-sup" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $s['name'] ?>" data-id="<?= $s['id'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                    <a href="<?= base_url('supplier/edit/') . $s['id']; ?>" class="badge badge"><i class="fas fa-edit" style="color:#217D3B;"></i></a>
+                                    <a class="badge badge hapus-sup" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $s['name'] ?>" data-id="<?= $s['id'] ?>"><i class="fas fa-trash" style="color:#CF0210;"></i></a>
                                 </td>
                             </tr>
 

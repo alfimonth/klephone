@@ -41,8 +41,8 @@
                                 ?>
                                 <td class="right pr-md-2 fit"><?= $harga ?></td>
                                 <td class="opsi">
-                                    <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                    <a href="" class="badge badge-danger hapus" data-toggle="modal" data-target="#hapusModal" data-id="<?= $p['id']; ?>" data-nama="<?= $p['name'] . ' ' . $p['tipe'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                    <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge"><i class="fas fa-edit" style="color:#217D3B;"> </i></a>
+                                    <a href="" class="badge badge hapus" data-toggle="modal" data-target="#hapusModal" data-id="<?= $p['id']; ?>" data-nama="<?= $p['name'] . ' ' . $p['tipe'] ?>"><i class="fas fa-trash " style="color:#CF0210;"></i></a>
                                 </td>
                             </tr>
 

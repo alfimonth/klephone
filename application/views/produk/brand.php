@@ -30,8 +30,8 @@
                                 <td scope="row" class="center"><?= $b['total_tipe'] ?></td>
 
                                 <td class="opsi">
-                                    <a href="<?= base_url('brand/edit/') . $b['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                    <a href="#" class="badge badge-danger hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                    <a href="<?= base_url('brand/edit/') . $b['id']; ?>" class="badge badge"><i class="fas fa-edit" style="color:#217D3B;"></i></a>
+                                    <a href="#" class="badge badge hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash" style="color:#CF0210;"></i></a>
                                 </td>
                             </tr>
 
