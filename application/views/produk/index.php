@@ -13,9 +13,9 @@
             <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-plus-circle"></i> Tambah produk</a>
             <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3"><i class="fas fa-truck"></i> Suplai</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <div>
 
-                <table class="table table-hover">
+                <table class="table table-hover" id="datatablesSimple">
                     <thead>
                         <tr>
                             <th scope="col" class="fit-img center">Gambar</th>
