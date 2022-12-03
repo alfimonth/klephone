@@ -100,7 +100,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
                         </div>
                         <div class="col-3">
-                            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success "><i class="fas fa-plus-circle"></i> Transaksi</a>
+                            <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success "><i class="fas fa-plus-circle"></i> Transaksi</a>
                         </div>
                     </div>
 
@@ -157,36 +157,27 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Tanggal</th>
                                     <th>Supplier</th>
-                                    <th>Alamat</th>
-                                    <th>Telepon</th>
-                                    <th>Email</th>
-                                    <th>Catatan</th>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($sup as $s) : ?>
+                                <?php foreach ($hs as $hs) : ?>
                                     <tr>
-                                        <td scope="row"><?= $s['name'] ?></td>
-                                        <td scope="row"><?= $s['alamat'] ?></td>
-                                        <td scope="row"><?= $s['tlp'] ?></td>
-                                        <td scope="row"><?= $s['email'] ?></td>
-                                        <td scope="row"><?= $s['catatan'] ?></td>
+                                        <td scope="row"><?= $hs['date'] ?></td>
+                                        <td scope="row"><?= $hs['id_sup'] ?></td>
+                                        <td scope="row"><?= $hs['id_produk'] ?></td>
+                                        <td scope="row"><?= $hs['harga'] ?></td>
                                     </tr>
 
 
                                 <?php endforeach; ?>
 
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Supplier</th>
-                                    <th>Alamat</th>
-                                    <th>Telepon</th>
-                                    <th>Email</th>
-                                    <th>Catatan</th>
-                                </tr>
-                            </tfoot>
+
                         </table>
                     </div>
                 </div>
@@ -197,3 +188,52 @@
 <!-- /.container-fluid -->
 
 <!-- End of Main Content -->
+
+
+<!-- Suplai Modal-->
+<div class="modal fade" id="tranModal" tabindex="-1" role="dialog" aria-labelledby="bukuBaruModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bukuBaruModalLabel">Transaksi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select name="id_produk" class="form-control form-control-user">
+                            <option value="">Pilih Produk</option>
+                            <?php foreach ($produk as $p) : ?>
+                                <option value="<?= $p['id']; ?>"><?= $p['name']; ?> <?= $p['tipe']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group row mb-4" style="margin-left: 0;">
+                        <select name="id_sup" class="form-control form-control-user col-sm-10 mb-4 mb-sm-0 mr-2">
+                            <option value="">Costumer</option>
+                            <?php foreach ($cos as $c) : ?>
+                                <option value="<?= $c['id']; ?>"><?= $c['name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <div class="col-sm-1 float-sm-right">
+                            <a href="costumer/tambah" type="submit" class="btn btn-primary w-auto"><i class=" fas fa-plus-circle"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="number" required class="form-control form-control-user" id="stok" name="stok" placeholder="Jumlah">
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i>Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End of Modal Tambah Mneu -->
