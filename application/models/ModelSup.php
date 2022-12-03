@@ -15,6 +15,10 @@ class ModelSup extends CI_Model
     {
         return $this->db->get('supplier');
     }
+    public function getHis()
+    {
+        return $this->db->get('history_sup');
+    }
     public function simpanSup($data = null)
     {
 

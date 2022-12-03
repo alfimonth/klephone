@@ -23,8 +23,8 @@
                                 <td scope="row"><?= $c['tlp'] ?></td>
                                 <td scope="row"><?= $c['catatan'] ?></td>
                                 <td class="opsi">
-                                    <a href="<?= base_url('costumer/edit/') . $c['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit</a>
-                                    <a class="badge badge-danger hapus-cos" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $c['name'] ?>" data-id="<?= $c['id'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                    <a href="<?= base_url('costumer/edit/') . $c['id']; ?>" class="badge badge"><i class="fas fa-edit" style="color:#217D3B;"></i></a>
+                                    <a class="badge badge hapus-cos" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $c['name'] ?>" data-id="<?= $c['id'] ?>"><i class="fas fa-trash" style="color:#CF0210;"></i></a>
                                 </td>
                             </tr>
 

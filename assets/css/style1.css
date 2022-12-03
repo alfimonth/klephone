@@ -1,0 +1,38 @@
+.jumbotron {
+	background-image: url(http://localhost/klephone/assets/img/promo/banner-bg.jpg);
+	background-size: cover;
+	padding-bottom: 5rem;
+}
+
+.jumbotron .carousel-inner {
+	z-index: 1;
+}
+.jumbotron .carousel-inner img {
+	justify-content: center;
+	margin: auto;
+	width: 150px;
+	box-sizing: 50px;
+	padding-top: rem;
+	box-shadow: 0 10px 20px rgb(0, 0, 0, 0.6);
+}
+.carousel-item img:hover {
+	transform: scale(0.9);
+}
+
+.jumbotron h3 {
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+.lead {
+	font-size: 1rem;
+	line-height: 2;
+}
+.jumbotron {
+	padding-top: 5rem;
+}
+.standrak {
+	margin-top: 15rem;
+	margin: auto;
+	justify-content: center;
+	width: 200px;
+}

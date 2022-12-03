@@ -3,10 +3,11 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-phone"></i>
+        <div class="sidebar-brand ">
         </div>
-        <div class="sidebar-brand-text mx-3">KLephone</div>
+        <div class="sidebar-brand mx-3  " style="margin-bottom: 35px;">
+            <img src=" <?= base_url('assets/img/klephone.png'); ?> " style=" width :100%" alt="">
+        </div>
     </a>
 
     <!-- Divider -->
@@ -19,7 +20,7 @@
 
     <!-- Dashboard -->
     <li class="nav-item <?= ($title == 'Dashboard') ? 'active' : '' ?>">
-        <a class="nav-link" href="dashboard  ">
+        <a class="nav-link" href="<?= base_url('dashboard'); ?> ">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
@@ -29,7 +30,7 @@
 
     <!-- Brand  -->
     <li class="nav-item <?= ($title == 'Brand') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= 'brand' ?>">
+        <a class="nav-link" href="<?= base_url('brand') ?>">
             <i class="fas fa-fw fa-star"></i>
             <span>Brand</span>
         </a>
