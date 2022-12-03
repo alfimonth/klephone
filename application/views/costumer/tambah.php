@@ -33,7 +33,7 @@
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                         Submit
                                     </button>
-                                    <a href="<?= base_url('produk') ?>" class="btn btn-danger btn-user btn-block mb-3">
+                                    <a href="<?= base_url('costumer') ?>" class="btn btn-danger btn-user btn-block mb-3">
                                         Batal
                                     </a>
 
