@@ -30,8 +30,8 @@
 
                                 <td class="opsi">
                                     <?php if ($u['id'] != 1) { ?>
-                                        <a href="<?= base_url('user/hapus/') . $u['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> edit role</a>
-                                        <a class="badge badge-danger hapus-user  " href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $u['name'] ?>" data-id="<?= $u['id'] ?>"><i class="fas fa-trash"></i> hapus</a>
+                                        <a href="<?= base_url('user/hapus/') . $u['id']; ?>" class="badge badge"><i class="fas fa-edit" style="color:#217D3B;"></i> </a>
+                                        <a class="badge badge hapus-user  " href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $u['name'] ?>" data-id="<?= $u['id'] ?>"><i class="fas fa-trash" style="color:#CF0210;"></i></a>
                                     <?php } else { ?>
                                         <a class="badge badge-secondary">Cannot Modify</a>
                                     <?php  } ?>
