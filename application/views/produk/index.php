@@ -40,9 +40,13 @@
 
                                 ?>
                                 <td class="right pr-md-2 fit"><?= $harga ?></td>
-                                <td class="opsi">
-                                    <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge"><i class="fas fa-edit" style="color:#217D3B;"> </i></a>
-                                    <a href="" class="badge badge hapus" data-toggle="modal" data-target="#hapusModal" data-id="<?= $p['id']; ?>" data-nama="<?= $p['name'] . ' ' . $p['tipe'] ?>"><i class="fas fa-trash " style="color:#CF0210;"></i></a>
+                                <td class="center opsi">
+                                    <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge">
+                                        <i class="fas fa-edit fa-2x" style="color:#217D3B;"> </i>
+                                    </a>
+                                    <a href="" class="badge badge hapus" data-toggle="modal" data-target="#hapusModal" data-id="<?= $p['id']; ?>" data-nama="<?= $p['name'] . ' ' . $p['tipe'] ?>">
+                                        <i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i>
+                                    </a>
                                 </td>
                             </tr>
 
