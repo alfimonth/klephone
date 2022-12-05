@@ -17,13 +17,6 @@
 .topbar.navbar-light .navbar-nav .nav-item .bg:hover {
 	color: white;
 }
-
-.opsi a {
-	margin: 2px auto;
-	display: block;
-	width: fit-content;
-}
-
 .table .center {
 	text-align: center;
 	margin: 0 auto;
