@@ -22,7 +22,7 @@
                             <th scope="col">Nama Produk</th>
                             <th scope="col" class="center">Varian</th>
                             <th scope="col" class="center">Stok</th>
-                            <th scope="col" colspan="2" class="center">Harga</th>
+                            <th scope="col">Harga</th>
                             <th scope="col" class="center">Opsi</th>
                         </tr>
                     </thead>
@@ -34,10 +34,8 @@
                                 <td scope="row"><a href="<?= base_url('produk/detail/') . $p['id'] ?>"><?= $p['name'] ?> <?= $p['tipe'] ?></a></td>
                                 <td class="right px-md-5 fit-2"><?= $p['memory'] ?> GB</td>
                                 <td class="right px-md-5 fit"><?= $p['stok'] ?></td>
-                                <td class="fit pl-md-2">Rp</td>
                                 <?php
-                                $harga = number_format($p['harga'], 0, ',', '.');
-
+                                $harga = 'Rp' . number_format($p['harga'], 0, ',', '.');
                                 ?>
                                 <td class="right pr-md-2 fit"><?= $harga ?></td>
                                 <td class="opsi">

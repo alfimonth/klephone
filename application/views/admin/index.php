@@ -94,20 +94,20 @@
         <!-- Ruwayat Transaksi -->
         <div class="col-xl-6 col-lg-7">
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
+                <div class="card-header card-header-actions">
                     <div class="row">
                         <div class="col-9">
                             <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
                         </div>
                         <div class="col-3">
-                            <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success "><i class="fas fa-plus-circle"></i> Transaksi</a>
+                            <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> Transaksi</a>
                         </div>
                     </div>
 
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="TABLE_1" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Supplier</th>
@@ -131,15 +131,6 @@
                                 <?php endforeach; ?>
 
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Supplier</th>
-                                    <th>Alamat</th>
-                                    <th>Telepon</th>
-                                    <th>Email</th>
-                                    <th>Catatan</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -154,7 +145,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="TABLE_2" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Tanggal</th>
@@ -180,6 +171,14 @@
 
                         </table>
                     </div>
+                    <script type="text/javascript" defer="defer">
+                        $(document).ready(function() {
+                            $("table[id^='TABLE']").DataTable({
+
+                            });
+
+                        });
+                    </script>
                 </div>
             </div>
         </div>
