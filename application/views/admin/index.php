@@ -107,14 +107,13 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="TABLE_1" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="tabel0" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Supplier</th>
-                                    <th>Alamat</th>
-                                    <th>Telepon</th>
-                                    <th>Email</th>
-                                    <th>Catatan</th>
+                                    <th>Tanggal</th>
+                                    <th>Costumer</th>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -132,6 +131,14 @@
 
                             </tbody>
                         </table>
+                        <script>
+                            window.addEventListener('DOMContentLoaded', event => {
+                                const tabel0 = document.getElementById('tabel0');
+                                if (tabel0) {
+                                    new simpleDatatables.DataTable(tabel0);
+                                }
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -145,10 +152,10 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="TABLE_2" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="tabel1" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tanggal</th>
+                                    <th>WAKTU</th>
                                     <th>Supplier</th>
                                     <th>Produk</th>
                                     <th>Harga</th>
@@ -158,27 +165,30 @@
                             <tbody>
                                 <?php foreach ($hs as $hs) : ?>
                                     <tr>
-                                        <td scope="row"><?= $hs['date'] ?></td>
+                                        <?php
+                                        $hs['date'];
+                                        $date = strtotime($hs['date']);
+                                        ?>
+                                        <td scope="row"><?= date('d F Y, h:i:s A', $date) ?></td>
                                         <td scope="row"><?= $hs['id_sup'] ?></td>
                                         <td scope="row"><?= $hs['id_produk'] ?></td>
                                         <td scope="row"><?= $hs['harga'] ?></td>
                                     </tr>
-
-
                                 <?php endforeach; ?>
-
                             </tbody>
 
                         </table>
-                    </div>
-                    <script type="text/javascript" defer="defer">
-                        $(document).ready(function() {
-                            $("table[id^='TABLE']").DataTable({
-
+                        <script>
+                            window.addEventListener('DOMContentLoaded', event => {
+                                // Simple-DataTables
+                                // https://github.com/fiduswriter/Simple-DataTables/wiki
+                                const tabel1 = document.getElementById('tabel1');
+                                if (tabel1) {
+                                    new simpleDatatables.DataTable(tabel1);
+                                }
                             });
-
-                        });
-                    </script>
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
