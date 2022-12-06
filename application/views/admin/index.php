@@ -169,7 +169,7 @@
                                         $hs['date'];
                                         $date = strtotime($hs['date']);
                                         ?>
-                                        <td scope="row"><?= date('d F Y, h:i:s A', $date) ?></td>
+                                        <td scope="row"><?= date('d F Y, h:i:s H', $date) ?></td>
                                         <td scope="row"><?= $hs['id_sup'] ?></td>
                                         <td scope="row"><?= $hs['id_produk'] ?></td>
                                         <td scope="row"><?= $hs['harga'] ?></td>

@@ -23,7 +23,7 @@
                         <tr>
                             <td class="center"> <img class="img-product" src="<?= base_url('assets/img/profile/' . $u['image']) ?>" alt=""> </td>
                             <td scope="row"><?= $u['name'] ?></td>
-                            <td scope="row"><?= ($u['role_id'] == 1) ? 'Admin' : 'Member' ?></td>
+                            <td scope="row"><?= $u['role'] ?></td>
                             <td scope="row"><?= $u['email'] ?></td>
                             <td>.....</td>
 

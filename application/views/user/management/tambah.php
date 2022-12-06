@@ -40,8 +40,9 @@
                                     </div>
                                     <div class="email mb-4">
                                         <select name="role" class="form form-control" id="brand">
-                                            <option value="1">Admin</option>
-                                            <option value="2">Member</option>
+                                            <?php foreach ($role as $r) : ?>
+                                                <option value="<?= $r['id'] ?>"><?= $r['role']  ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                         <label for="brand" class="label">Role</label>
                                         <?= form_error('brand',  '<small class="text-danger">', '</small>') ?>

@@ -22,14 +22,24 @@ class User extends CI_Controller
     }
     public function management()
     {
-        $data['title'] = 'Account';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['ac'] = $this->ModelUser->getUser()->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('user/management/index');
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('id_produk', 'id_produk', 'required', [
+            'required' => 'Harap pilih Produk',
+        ]);
+        $this->form_validation->set_rules('id_sup', 'id_sup', 'required', [
+            'required' => 'Harap pilih Supplier',
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Account';
+            $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+            $data['ac'] = $this->ModelUser->joinRole()->result_array();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar');
+            $this->load->view('user/management/index');
+            $this->load->view('templates/footer');
+        } else {
+        }
     }
 
     public function edit()
@@ -103,6 +113,7 @@ class User extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Tambah Account';
+            $data['role'] = $this->ModelUser->getRole()->result_array();
             $this->load->view('templates/auth_header', $data);
             $this->load->view('user/management/tambah');
             $this->load->view('templates/auth_footer');
@@ -126,14 +137,9 @@ class User extends CI_Controller
     }
     public function hapus()
     {
-        if ($this->uri->segment(3) != 1) {
-            $where = ['id' => $this->uri->segment(3)];
-            $this->ModelUser->hapusUser($where);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Akun berhasil dihapus</div>');
-            redirect('user/management');
-        } else {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Tidak dapat menghapus akun utama</div>');
-            redirect('user/management');
-        }
+        $where = ['id' => $this->uri->segment(3)];
+        $this->ModelUser->hapusUser($where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Akun berhasil dihapus</div>');
+        redirect('user/management');
     }
 }

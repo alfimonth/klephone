@@ -17,6 +17,7 @@ class ModelSup extends CI_Model
     }
     public function getHis()
     {
+        $this->db->order_by('id DESC');
         return $this->db->get('history_sup');
     }
     public function simpanSup($data = null)

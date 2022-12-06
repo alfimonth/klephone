@@ -44,6 +44,10 @@ class ModelUser extends CI_Model
     {
         return $this->db->get('user');
     }
+    public function getRole()
+    {
+        return $this->db->get('user_role');
+    }
     public function simpanUser($data = null)
     {
 
@@ -57,5 +61,13 @@ class ModelUser extends CI_Model
     public function updateUser($a, $data = null)
     {
         $this->db->update('user', $data, $a);
+    }
+    public function joinRole()
+    {
+        $this->db->select('user.id as id, user.name, user.email, user.image, user_role.role');
+        $this->db->from('user');
+        $this->db->join('user_role', 'user.role_id = user_role.id');
+        $this->db->order_by('user_role.id, user.name');
+        return $this->db->get();
     }
 }
