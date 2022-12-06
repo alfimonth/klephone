@@ -91,107 +91,111 @@
         </div>
     </div>
     <div class="row">
-        <!-- Ruwayat Transaksi -->
-        <div class="col-xl-6 col-lg-7">
-            <div class="card shadow mb-4">
-                <div class="card-header card-header-actions">
-                    <div class="row">
-                        <div class="col-9">
-                            <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
+        <?php if ($role == 1 || $role == 3) : ?>
+            <!-- Ruwayat Transaksi -->
+            <div class="<?= ($role == 3) ? 'col-xl-12' : 'col-xl-6 col-lg-7' ?>">
+                <div class="card shadow mb-4">
+                    <div class="card-header card-header-actions">
+                        <div class="row">
+                            <div class="col-9">
+                                <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
+                            </div>
+                            <div class="col-3">
+                                <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> Transaksi</a>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> Transaksi</a>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="tabel0" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Tanggal</th>
-                                    <th>Costumer</th>
-                                    <th>Produk</th>
-                                    <th>Harga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($sup as $s) : ?>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="tabel0" width="100%" cellspacing="0">
+                                <thead>
                                     <tr>
+                                        <th>Tanggal</th>
+                                        <th>Costumer</th>
+                                        <th>Produk</th>
+                                        <th>Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($sup as $s) : ?>
+                                        <!-- <tr>
                                         <td scope="row"><?= $s['name'] ?></td>
                                         <td scope="row"><?= $s['alamat'] ?></td>
                                         <td scope="row"><?= $s['tlp'] ?></td>
                                         <td scope="row"><?= $s['email'] ?></td>
                                         <td scope="row"><?= $s['catatan'] ?></td>
-                                    </tr>
+                                    </tr> -->
 
 
-                                <?php endforeach; ?>
+                                    <?php endforeach; ?>
 
-                            </tbody>
-                        </table>
-                        <script>
-                            window.addEventListener('DOMContentLoaded', event => {
-                                const tabel0 = document.getElementById('tabel0');
-                                if (tabel0) {
-                                    new simpleDatatables.DataTable(tabel0);
-                                }
-                            });
-                        </script>
+                                </tbody>
+                            </table>
+                            <script>
+                                window.addEventListener('DOMContentLoaded', event => {
+                                    const tabel0 = document.getElementById('tabel0');
+                                    if (tabel0) {
+                                        new simpleDatatables.DataTable(tabel0);
+                                    }
+                                });
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endif ?>
 
         <!-- Ruwayat Suplai -->
-        <div class="col-xl-6 col-lg-7">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Riwayat Suplai</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="tabel1" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>WAKTU</th>
-                                    <th>Supplier</th>
-                                    <th>Produk</th>
-                                    <th>Harga</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($hs as $hs) : ?>
+        <?php if ($role == 1 || $role == 2) : ?>
+            <div class="<?= ($role == 2) ? 'col-xl-12' : 'col-xl-6 col-lg-7' ?>">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Riwayat Suplai</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="tabel1" width="100%" cellspacing="0">
+                                <thead>
                                     <tr>
-                                        <?php
-                                        $hs['date'];
-                                        $date = strtotime($hs['date']);
-                                        ?>
-                                        <td scope="row"><?= date('d F Y, h:i:s H', $date) ?></td>
-                                        <td scope="row"><?= $hs['id_sup'] ?></td>
-                                        <td scope="row"><?= $hs['id_produk'] ?></td>
-                                        <td scope="row"><?= $hs['harga'] ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
+                                        <th>WAKTU</th>
+                                        <th>Supplier</th>
+                                        <th>Produk</th>
+                                        <th>Harga</th>
 
-                        </table>
-                        <script>
-                            window.addEventListener('DOMContentLoaded', event => {
-                                // Simple-DataTables
-                                // https://github.com/fiduswriter/Simple-DataTables/wiki
-                                const tabel1 = document.getElementById('tabel1');
-                                if (tabel1) {
-                                    new simpleDatatables.DataTable(tabel1);
-                                }
-                            });
-                        </script>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($hs as $hs) : ?>
+                                        <tr>
+                                            <?php
+                                            $hs['date'];
+                                            $date = strtotime($hs['date']);
+                                            ?>
+                                            <td scope="row"><?= date('d F Y, h:i:s', $date) ?></td>
+                                            <td scope="row"><?= $hs['id_sup'] ?></td>
+                                            <td scope="row"><?= $hs['id_produk'] ?></td>
+                                            <td scope="row">Rp<?= number_format($hs['harga'], 0, '.', ',');  ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+
+                            </table>
+                            <script>
+                                window.addEventListener('DOMContentLoaded', event => {
+                                    // Simple-DataTables
+                                    // https://github.com/fiduswriter/Simple-DataTables/wiki
+                                    const tabel1 = document.getElementById('tabel1');
+                                    if (tabel1) {
+                                        new simpleDatatables.DataTable(tabel1);
+                                    }
+                                });
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endif ?>
     </div>
 </div>
 <!-- /.container-fluid -->

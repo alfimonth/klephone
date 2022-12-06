@@ -11,7 +11,7 @@ function cek_login()
         $role_id = $ci->session->userdata('role_id');
         $id_user = $ci->session->userdata('id_user');
     }
-    if ($role_id != 1) {
+    if ($role_id > 3) {
         redirect('404');
     }
 }
@@ -19,7 +19,7 @@ function cek_role()
 {
     $ci = get_instance();
 
-    if ($ci->session->userdata('role_id') != 1) {
+    if ($ci->session->userdata('role_id') > 3 || $ci->session->userdata('role_id') == null) {
         redirect('');
     } else {
         redirect('dashboard');
@@ -29,7 +29,7 @@ function cek_user()
 {
     $ci = get_instance();
     $role_id = $ci->session->userdata('role_id');
-    if ($role_id != 1) {
+    if ($role_id > 3) {
         $ci->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Akses tidak diizinkan </div>');
         redirect('home');
     }

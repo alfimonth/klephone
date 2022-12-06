@@ -1,4 +1,7 @@
 <!-- Sidebar -->
+<?php
+$role = $this->session->userdata('role_id');
+?>
 <ul class="navbar-nav  sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
@@ -17,6 +20,21 @@
     <!-- <div class="sidebar-heading">
         Navigasi
     </div> -->
+    <!-- Heading -->
+    <div class="sidebar-heading my-3" style="color: #fff;">
+        <?php
+        if ($role == 1) {
+            echo 'Menu Manager';
+        }
+        if ($role == 2) {
+            echo 'Menu Staff Gudang';
+        }
+        if ($role == 3) {
+            echo 'Menu Kasir';
+        }
+        ?>
+    </div>
+
 
     <!-- Dashboard -->
     <li class="nav-item <?= ($title == 'Dashboard') ? 'active' : '' ?>">
@@ -36,43 +54,40 @@
         </a>
     </li>
 
-
-
-
-
     <!-- Divider -->
     <!-- <hr class="sidebar-divider"> -->
-
-
-    <!-- Heading -->
-    <!-- <div class="sidebar-heading">
-                Management
-            </div> -->
-
     <li class="nav-item <?= ($title == 'Produk') ? 'active' : '' ?>">
         <a class="nav-link" href=" <?= base_url('produk') ?>">
             <i class="fas fa-fw fa-box"></i>
             <span>Produk</span>
         </a>
     </li>
-    <li class="nav-item <?= ($title == 'Supplier') ? 'active' : '' ?>">
-        <a class="nav-link" href=" <?= base_url('supplier') ?>">
-            <i class="fas fa-fw fa-truck"></i>
-            <span>Supplier</span>
-        </a>
-    </li>
-    <li class="nav-item <?= ($title == 'Costumer') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('costumer') ?>">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Costumer</span>
-        </a>
-    </li>
-    <li class="nav-item <?= ($title == 'Account') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('user/management') ?>">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Account</span>
-        </a>
-    </li>
+    <?php if ($role == 1 || $role == 2) : ?>
+        <li class="nav-item <?= ($title == 'Supplier') ? 'active' : '' ?>">
+            <a class="nav-link" href=" <?= base_url('supplier') ?>">
+                <i class="fas fa-fw fa-truck"></i>
+                <span>Supplier</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+    <?php if ($role == 1 || $role == 3) : ?>
+        <li class="nav-item <?= ($title == 'Costumer') ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('costumer') ?>">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Costumer</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+    <?php if ($role == 1) : ?>
+        <li class="nav-item <?= ($title == 'Account') ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('user/management') ?>">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Account</span>
+            </a>
+        </li>
+    <?php endif; ?>
     <!-- <li class="nav-item <?= ($title == 'Account') ? 'active' : '' ?>">
         <a class="nav-link collapsed" href="index.html" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
             <i class="fas fa-fw fa-user"></i>
@@ -94,15 +109,15 @@
         </a>
     </li>
 
-    <?php if (isset($user['name'])) : ?>
-        <!-- Logout -->
-        <li class="nav-item ">
-            <a class="nav-link" href="" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Logout</span>
-            </a>
-        </li>
-    <?php endif; ?>
+
+    <!-- Logout -->
+    <li class="nav-item ">
+        <a class="nav-link" href="" href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </a>
+    </li>
+
 
     <!-- Nav Item - Utilities Collapse Menu -->
 

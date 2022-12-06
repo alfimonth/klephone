@@ -47,7 +47,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
-<script src="<?= base_url('assets/') ?>js/del.js"></script>
+<script src="<?= base_url('assets/') ?>js/cl.js"></script>
 
 <script>
     $('.alert-message').alert().delay(3000).slideUp('slow');
@@ -57,7 +57,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="<?= base_url('assets/') ?>js/datatables/scripts.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
-<script src="<?= base_url('assets/') ?>js/datatables/latests.js"></script>
+<script src="<?= base_url('assets/') ?>js/datatables/latest.js"></script>
 <script src="<?= base_url('assets/') ?>js/datatables/datatables-simple-demo.js"></script>
 
 </body>
