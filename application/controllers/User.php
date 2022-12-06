@@ -22,23 +22,28 @@ class User extends CI_Controller
     }
     public function management()
     {
-        $this->form_validation->set_rules('id_produk', 'id_produk', 'required', [
-            'required' => 'Harap pilih Produk',
-        ]);
-        $this->form_validation->set_rules('id_sup', 'id_sup', 'required', [
-            'required' => 'Harap pilih Supplier',
+        $this->form_validation->set_rules('id_role', 'id_role', 'required', [
+            'required' => 'Harap pilih Role',
         ]);
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Account';
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
             $data['ac'] = $this->ModelUser->joinRole()->result_array();
+            $data['role'] = $this->ModelUser->getRole()->result_array();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('templates/topbar');
             $this->load->view('user/management/index');
             $this->load->view('templates/footer');
         } else {
+
+            $data = [
+                'role_id' => $this->input->post('id_role', true),
+            ];
+            $this->ModelUser->updateProfile(['id' => $this->input->post('id')], $data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Perubahan Role Berhasil</div>');
+            redirect('user/management');
         }
     }
 

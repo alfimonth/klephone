@@ -64,7 +64,7 @@ class ModelUser extends CI_Model
     }
     public function joinRole()
     {
-        $this->db->select('user.id as id, user.name, user.email, user.image, user_role.role');
+        $this->db->select('user.id as id, user.name, user.email, user.image, user_role.role, user_role.id as role_id');
         $this->db->from('user');
         $this->db->join('user_role', 'user.role_id = user_role.id');
         $this->db->order_by('user_role.id, user.name');
