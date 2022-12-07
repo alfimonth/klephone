@@ -70,6 +70,15 @@ class ModelProduk extends CI_Model
         $this->db->where('produk.id=' . $where);
         return $this->db->get();
     }
+    public function joinBrandProdukStok()
+    {
+        //$this->db->select('buku.id_kategori,kategori.kategori');
+        $this->db->select("Produk.id,produk.img,brand.name,produk.tipe,produk.memory,produk.harga,produk.stok");
+        $this->db->from('produk');
+        $this->db->join('brand', 'brand.id = produk.id_brand');
+        $this->db->where('stok > 0');
+        return $this->db->get();
+    }
     public function updateProduk($a, $data = null)
     {
         $this->db->update('produk', $data, $a);

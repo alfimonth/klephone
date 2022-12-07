@@ -108,7 +108,7 @@ class Auth extends CI_Controller
                 'image' => 'default.jpg',
 
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'role_id' => 2,
+                'role_id' => 4,
                 'is_active' => 1,
                 'date_created' => time()
             ];

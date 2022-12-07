@@ -12,7 +12,6 @@ class Produk extends CI_Controller
 
     public function index()
     {
-
         // validasi
 
         $this->form_validation->set_rules('id_produk', 'id_produk', 'required', [
@@ -35,43 +34,50 @@ class Produk extends CI_Controller
             $this->load->view('produk/index');
             $this->load->view('templates/footer');
         } else {
-            $data = [
-                'id_produk' => $this->input->post('id_produk', true),
-                'id_sup' => $this->input->post('id_sup', true),
-                'harga' => $this->input->post('harga', true),
-                'stok' => $this->input->post('stok', true),
-            ];
-            $stok = $this->ModelProduk->getStok($data['id_produk'])->row_array()['stok'];
-            $stok = intval($stok) + intval($data['stok']);
-
-            $id = $data['id_produk'];
-
-            $this->ModelSup->simpanHisSup($data);
-            // history sup
-
-            // edit produk 
-            $data = [
-                'stok' => $stok,
-            ];
-            $this->ModelProduk->updateProduk(['id' => $id], $data);
-            // rekening
             $prebalance = $this->ModelRekening->getBalance()['balance'];
-            $balance = intval($prebalance) - intval($this->input->post('harga', true));
-            $id_his_sup = $this->ModelSup->getId()['id'];
+            $harga = $this->input->post('harga', true);
+            if (intval($harga) > intval($prebalance)) {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Suplai gagal, kas tidak mencukupi !</div>');
+                redirect('produk');
+                die;
+            } else {
+                $data = [
+                    'id_produk' => $this->input->post('id_produk', true),
+                    'id_sup' => $this->input->post('id_sup', true),
+                    'harga' => $harga,
+                    'stok' => $this->input->post('stok', true),
+                ];
+                $stok = $this->ModelProduk->getStok($data['id_produk'])->row_array()['stok'];
+                $stok = intval($stok) + intval($data['stok']);
 
+                $id = $data['id_produk'];
 
-            //    
-            $data = [
-                'debit' => 0,
-                'kredit' => $this->input->post('harga', true),
-                'balance' => $balance,
-                'id_his_sup' => $id_his_sup,
-                'id_tran' => ''
-            ];
+                $this->ModelSup->simpanHisSup($data);
+                // history sup
 
-            $this->ModelRekening->simpanRek($data);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Suplai Berhasil</div>');
-            redirect('produk');
+                // edit produk 
+                $data = [
+                    'stok' => $stok,
+                ];
+                $this->ModelProduk->updateProduk(['id' => $id], $data);
+                // rekening
+
+                $balance = intval($prebalance) - intval($this->input->post('harga', true));
+                $id_his_sup = $this->ModelSup->getId()['id'];
+
+                //    
+                $data = [
+                    'debit' => 0,
+                    'kredit' => $this->input->post('harga', true),
+                    'balance' => $balance,
+                    'id_his_sup' => $id_his_sup,
+                    'id_tran' => ''
+                ];
+
+                $this->ModelRekening->simpanRek($data);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Suplai Berhasil</div>');
+                redirect('produk');
+            }
         }
     }
     public function tambah()

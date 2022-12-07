@@ -22,6 +22,7 @@ class User extends CI_Controller
     }
     public function management()
     {
+        manager();
         $this->form_validation->set_rules('id_role', 'id_role', 'required', [
             'required' => 'Harap pilih Role',
         ]);
@@ -56,10 +57,10 @@ class User extends CI_Controller
 
         //konfigurasi sebelum gambar diupload
         $config['upload_path'] = './assets/img/profile/';
-        $config['allowed_types'] = 'jpg|png|jpeg';
-        $config['max_size'] = '3000';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '1000';
+        $config['allowed_types'] = 'jpg|png|jpeg|gif';
+        // $config['max_size'] = '3000';
+        // $config['max_width'] = '1024';
+        // $config['max_height'] = '1000';
         $config['file_name'] = 'image' . time();
 
         $this->load->library('upload', $config);
@@ -93,8 +94,6 @@ class User extends CI_Controller
     }
     public function tambah()
     {
-
-
         $required = 'Kolom wajib diisi';
 
         $this->form_validation->set_rules('name', 'Username', 'required|trim|min_length[3]|is_unique[user.name]', [
