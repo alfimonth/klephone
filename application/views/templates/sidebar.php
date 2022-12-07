@@ -10,7 +10,7 @@ $role = $this->session->userdata('role_id');
             <img src=" <?= base_url('assets/img/logo-sml.png'); ?> " style=" width :40%" alt="">
         </div>
         <div class="sidebar-brand-text">
-            <img src=" <?= base_url('assets/img/klephone.png'); ?> " style=" width :60%" alt="">
+            <img src=" <?= base_url('assets/img/klephone.png'); ?> " class="pt-3" style=" width :60%" alt="">
         </div>
     </a>
 
