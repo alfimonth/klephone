@@ -5,11 +5,12 @@ $role = $this->session->userdata('role_id');
 <ul class="navbar-nav  sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand ">
+    <a class="sidebar-brand d-flex align-items-center" href="index.html">
+        <div class="sidebar-brand-icon">
+            <img src=" <?= base_url('assets/img/logo-sml.png'); ?> " style=" width :40%" alt="">
         </div>
-        <div class="sidebar-brand mx-3  " style="margin-bottom: 35px;">
-            <img src=" <?= base_url('assets/img/klephone.png'); ?> " style=" width :100%" alt="">
+        <div class="sidebar-brand-text">
+            <img src=" <?= base_url('assets/img/klephone.png'); ?> " style=" width :60%" alt="">
         </div>
     </a>
 

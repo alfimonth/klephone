@@ -3,25 +3,24 @@
     <div class="jumbotron">
         <div class="row">
             <div class="col-6">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <h1 class="display-4">Oppo Day!</h1>
+                <p class="lead">Harga promo disetiap akhir bulan. Promo hingga 50%, Serta mendapat bonus aksesoris Handpone. </p>
                 <p class="lead">
-                    <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
+                    <a class="btn btn-success btn-lg" href="#" role="button">Cek Sekarang ></a>
                 </p>
             </div>
             <div class="col-6">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block" src="http://tradeoptiontech.com/wp-content/uploads/2021/11/swappie-product-iphone-11-purple.png" alt="First slide">
+                            <img class="d-block" src=" <?= base_url('assets/img/promo/oppo2.jpg'); ?> " alt="">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block" src="https://www.yatekno.com/wp-content/uploads/2020/12/Apple-iPhone-12-Pro-Max-Yatekno.jpg" alt="Second slide">
+                            <img class="d-block" src=" <?= base_url('assets/img/promo/oppo5.jpg'); ?> " alt="">
+
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block" src="https://media.pricebook.co.id/images/product/L/87099_L_1.jpg" alt="Third slide">
+                            <img class="d-block" src=" <?= base_url('assets/img/promo/oppo4.jpg'); ?> " alt="">
                         </div>
                     </div>
                     <img src=" <?= base_url('assets/img/promo/stand.png'); ?> " class="d-block standrak" alt="" />
