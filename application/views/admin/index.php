@@ -2,13 +2,19 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"></h1>
-    </div>
 
     <!-- Content Row -->
     <div class="row">
-
+        <div class="col">
+            <?php if (validation_errors()) { ?>
+                <div class="alert alert-danger alert-message" role="alert">
+                    <?= validation_errors(); ?>
+                </div>
+            <?php } ?>
+            <?= $this->session->flashdata('pesan'); ?>
+        </div>
+    </div>
+    <div class="row ">
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
@@ -91,20 +97,22 @@
         </div>
     </div>
     <div class="row">
+        <div class="col mb-3">
+            <?php if ($role == 1) : ?>
+                <a href="<?= base_url('dashboard/kas'); ?>" class="btn btn-success "><i class="fas fa-dollar-sign"></i> Manajemen kas</a>
+            <?php endif ?>
+            <?php if ($role == 1 || $role == 3) : ?>
+                <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success"><i class="fas fa-plus-circle"></i> Transaksi</a>
+            <?php endif ?>
+        </div>
+    </div>
+    <div class="row">
         <?php if ($role == 1 || $role == 3) : ?>
             <!-- Ruwayat Transaksi -->
             <div class="<?= ($role == 3) ? 'col-xl-12' : 'col-xl-6 col-lg-7' ?>">
                 <div class="card shadow mb-4">
-                    <div class="card-header card-header-actions">
-                        <div class="row">
-                            <div class="col-9">
-                                <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
-                            </div>
-                            <div class="col-3">
-                                <a data-target="#tranModal" data-toggle="modal" href="" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> Transaksi</a>
-                            </div>
-                        </div>
-
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Riwayat Transaksi</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -118,14 +126,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($sup as $s) : ?>
-                                        <!-- <tr>
-                                        <td scope="row"><?= $s['name'] ?></td>
-                                        <td scope="row"><?= $s['alamat'] ?></td>
-                                        <td scope="row"><?= $s['tlp'] ?></td>
-                                        <td scope="row"><?= $s['email'] ?></td>
-                                        <td scope="row"><?= $s['catatan'] ?></td>
-                                    </tr> -->
+                                    <?php foreach ($tran as $t) : ?>
+                                        <tr>
+                                            <td scope="row"><?= $t['date'] ?></td>
+                                            <td scope="row"><?= $t['cos'] ?></td>
+                                            <td scope="row"><?= $t['brand'] . ' ' . $t['tipe'] ?></td>
+                                            <td scope="row"><?= $t['harga'] ?></td>
+                                        </tr>
 
 
                                     <?php endforeach; ?>
@@ -158,10 +165,10 @@
                             <table class="table table-bordered" id="tabel1" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>WAKTU</th>
+                                        <th>Waktu</th>
                                         <th>Supplier</th>
                                         <th>Produk</th>
-                                        <th>Harga</th>
+                                        <th>Pengeluaran</th>
 
                                     </tr>
                                 </thead>
@@ -215,17 +222,9 @@
             </div>
             <form action="" method="post">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <select name="id_produk" class="form-control form-control-user">
-                            <option value="">Pilih Produk</option>
-                            <?php foreach ($produk as $p) : ?>
-                                <option value="<?= $p['id']; ?>"><?= $p['name']; ?> <?= $p['tipe']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-group row mb-4" style="margin-left: 0;">
-                        <select name="id_sup" class="form-control form-control-user col-sm-10 mb-4 mb-sm-0 mr-2">
-                            <option value="">Costumer</option>
+                    <div class="form-group row mb-3" style="margin-left: 0;">
+                        <select name="id_cos" class="form-control form-control-user col-sm-10 mb-4 mb-sm-0 mr-2">
+                            <option value="">Pilih costumer</option>
                             <?php foreach ($cos as $c) : ?>
                                 <option value="<?= $c['id']; ?>"><?= $c['name']; ?></option>
                             <?php endforeach; ?>
@@ -234,16 +233,24 @@
                             <a href="costumer/tambah" type="submit" class="btn btn-primary w-auto"><i class=" fas fa-plus-circle"></i></a>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <input type="number" required class="form-control form-control-user" id="stok" name="stok" placeholder="Jumlah">
+                        <select name="id_produk" class="form-control form-control-user">
+                            <option value="">Pilih Produk</option>
+                            <?php foreach ($produk as $p) : ?>
+                                <option value="<?= $p['id']; ?>"><?= $p['name']; ?> <?= $p['tipe']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
+                    <div class="form-group">
 
-
+                    </div>
+                    <div class="form-group">
+                        <input type="number" min="1" required class="form-control form-control-user" id="stok" name="stok" placeholder="Jumlah">
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i>Close</button>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i> Batal</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Proses</button>
                 </div>
             </form>
         </div>

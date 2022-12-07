@@ -115,16 +115,16 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="number" required class="form-control form-control-user" id="stok" name="stok" placeholder="Stok">
+                            <input type="number" required class="form-control form-control-user" id="stok" name="stok" min="1" placeholder="Stok">
                         </div>
                         <div class="form-group">
-                            <input type="number" required class="form-control form-control-user" id="harga" name="harga" placeholder="Harga">
+                            <input type="number" required class="form-control form-control-user" id="harga" name="harga" min="0" placeholder="Tagihan">
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i>Close</button>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i> Batal</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Konfirmasi</button>
                     </div>
                 </form>
             </div>
