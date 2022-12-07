@@ -13,6 +13,7 @@
                                 <div class="text-center mb-5">
                                     <h1 class="h4">Edit Profile</h1>
                                 </div>
+                                <div class=" col-md-12 mb-4"><?= $this->session->flashdata('pesan'); ?></div>
                                 <form class="center col-md-12" method="POST" action="" enctype="multipart/form-data">
                                     <?php $u = $user[0] ?>
                                     <input type="text" value="<?= $u['id'] ?>" name="id" hidden>
