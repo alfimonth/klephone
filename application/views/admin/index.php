@@ -121,7 +121,7 @@
                                 <thead>
                                     <tr>
                                         <th>Tanggal</th>
-                                        <th>Costumer</th>
+                                        <th>Customer</th>
                                         <th>Produk</th>
                                         <th>Pendapatan</th>
                                     </tr>
@@ -225,13 +225,13 @@
                 <div class="modal-body">
                     <div class="form-group row mb-3" style="margin-left: 0;">
                         <select name="id_cos" class="form-control form-control-user col-sm-10 mb-4 mb-sm-0 mr-2">
-                            <option value="">Pilih costumer</option>
+                            <option value="">Pilih customer</option>
                             <?php foreach ($cos as $c) : ?>
                                 <option value="<?= $c['id']; ?>"><?= $c['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="col-sm-1 float-sm-right">
-                            <a href="costumer/tambah" type="submit" class="btn btn-primary w-auto"><i class=" fas fa-plus-circle"></i></a>
+                            <a href="customer/tambah" type="submit" class="btn btn-primary w-auto"><i class=" fas fa-plus-circle"></i></a>
                         </div>
                     </div>
                     <div class="form-group">

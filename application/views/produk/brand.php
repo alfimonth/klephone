@@ -16,8 +16,8 @@
                     <tr>
                         <th scope="col" class="fit-img center">Logo</th>
                         <th scope="col">Brand</th>
-                        <th scope="col" class="center">Jumlah Tipe</th>
-                        <th scope="col" class="center">Opsi</th>
+                        <th scope="col" class="center ">Jumlah Tipe</th>
+                        <th scope="col" class="center ">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>

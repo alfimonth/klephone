@@ -32,7 +32,7 @@
                                         <select name="" class="form form-control" id="cos">
                                             <option value=""><?= $cos['name'] ?></option>
                                         </select>
-                                        <label for="cos" class="label">Costumer</label>
+                                        <label for="cos" class="label">Customer</label>
 
                                     </div>
 

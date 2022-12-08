@@ -3,7 +3,7 @@
     <div class=" row">
         <div class="col-lg-12">
             <!-- Page Heading -->
-            <a href="<?= base_url('costumer/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah Costumer</a>
+            <a href="<?= base_url('customer/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah Customer</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
 
             <table class="table table-hover" id="datatablesSimple">
@@ -22,7 +22,7 @@
                             <td scope="row"><?= $c['tlp'] ?></td>
                             <td scope="row"><?= $c['catatan'] ?></td>
                             <td class="center opsi">
-                                <a href="<?= base_url('costumer/edit/') . $c['id']; ?>" class="badge badge"><i class="fas fa-edit fa-2x" style="color:#217D3B;"></i></a>
+                                <a href="<?= base_url('customer/edit/') . $c['id']; ?>" class="badge badge"><i class="fas fa-edit fa-2x" style="color:#217D3B;"></i></a>
                                 <a class="badge badge hapus-cos" href="" data-toggle="modal" data-target="#hapusBrandModal" data-nama="<?= $c['name'] ?>" data-id="<?= $c['id'] ?>"><i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i></a>
                             </td>
                         </tr>

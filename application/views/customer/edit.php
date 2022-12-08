@@ -18,7 +18,7 @@
 
                                     <div class="email mb-4">
                                         <input type="text" required class="form form-control" name="name" id="name" aria-describedby="emailHelp" value="<?= $cos['name'] ?>" />
-                                        <label for="name" class="label">Nama Costummer</label>
+                                        <label for="name" class="label">Nama Custommer</label>
                                         <?= form_error('name',  '<small class="text-danger">', '</small>') ?>
                                     </div>
                                     <div class="email mb-4">
@@ -35,7 +35,7 @@
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                         Submit
                                     </button>
-                                    <a href="<?= base_url('costumer') ?>" class="btn btn-danger btn-user btn-block mb-3">
+                                    <a href="<?= base_url('customer') ?>" class="btn btn-danger btn-user btn-block mb-3">
                                         Batal
                                     </a>
 

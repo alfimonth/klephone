@@ -17,7 +17,7 @@ class Dashboard extends CI_Controller
             'required' => 'Harap pilih produk',
         ]);
         $this->form_validation->set_rules('id_cos', 'id_cos', 'required', [
-            'required' => 'Harap pilih costumer',
+            'required' => 'Harap pilih customer',
         ]);
         if ($this->form_validation->run() == false) {
 

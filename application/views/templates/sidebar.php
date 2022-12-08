@@ -73,10 +73,10 @@ $role = $this->session->userdata('role_id');
     <?php endif; ?>
 
     <?php if ($role == 1 || $role == 3) : ?>
-        <li class="nav-item <?= ($title == 'Costumer') ? 'active' : '' ?>">
-            <a class="nav-link" href="<?= base_url('costumer') ?>">
+        <li class="nav-item <?= ($title == 'Customer') ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('customer') ?>">
                 <i class="fas fa-fw fa-book"></i>
-                <span>Costumer</span>
+                <span>Customer</span>
             </a>
         </li>
     <?php endif; ?>
