@@ -1,0 +1,9 @@
+@media print {
+	.no-print {
+		display: none;
+	}
+	a.print {
+		text-decoration: none;
+		color: black;
+	}
+}

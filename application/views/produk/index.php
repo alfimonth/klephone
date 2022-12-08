@@ -10,8 +10,9 @@
             <?= $this->session->flashdata('pesan'); ?>
 
             <!-- Page Heading -->
-            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-plus-circle"></i> Tambah produk</a>
-            <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3"><i class="fas fa-truck"></i> Suplai</a>
+            <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3 no-print"><i class="fas fa-plus-circle"></i> Tambah produk</a>
+            <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3  no-print"><i class="fas fa-truck"></i> Suplai</a>
+            <a class="btn btn-success mb-3 print" onclick="window.print()"><i class=" fas fa-print no-print"></i> Print</a>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <div>
 
@@ -23,7 +24,7 @@
                             <th scope="col" class="center">Varian</th>
                             <th scope="col" class="center">Stok</th>
                             <th scope="col">Harga</th>
-                            <th scope="col" class="center">Opsi</th>
+                            <th scope="col" class="center  no-print">Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,14 +32,14 @@
 
                             <tr>
                                 <td class="center"> <a href="<?= base_url('produk/detail/') . $p['id'] ?>"><img class="img-product" src="<?= base_url('assets/img/upload/' . $p['img']) ?>" alt=""> </a></td>
-                                <td scope="row"><a href="<?= base_url('produk/detail/') . $p['id'] ?>"><?= $p['name'] ?> <?= $p['tipe'] ?></a></td>
+                                <td scope="row"><a class="print" href="<?= base_url('produk/detail/') . $p['id'] ?>"><?= $p['name'] ?> <?= $p['tipe'] ?></a></td>
                                 <td class="right px-md-5 fit-2"><?= $p['memory'] ?> GB</td>
                                 <td class="right px-md-5 fit"><?= $p['stok'] ?></td>
                                 <?php
                                 $harga = 'Rp' . number_format($p['harga'], 0, ',', '.');
                                 ?>
                                 <td class="right pr-md-2 fit"><?= $harga ?></td>
-                                <td class="center opsi">
+                                <td class="center opsi  no-print">
                                     <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge">
                                         <i class="fas fa-edit fa-2x" style="color:#217D3B;"> </i>
                                     </a>

@@ -28,12 +28,16 @@ class Dashboard extends CI_Controller
             $data['sup'] = $this->ModelSup->getSup()->result_array();
             $data['cos'] = $this->ModelCos->getCos()->result_array();
             $data['stok'] = $this->ModelProduk->totalStok();
-            $data['hs'] = $this->ModelSup->getHis()->result_array();
+            $data['hs'] = $this->ModelSup->joinHisCosProduk()->result_array();
             $data['tran'] = $this->ModelTran->joinTranCosProduk()->result_array();
 
-
+            $out = $this->ModelSup->out()->row_array();
+            $in = $this->ModelTran->in();
             $b = $this->ModelRekening->getBalance();
-            $data['balance'] = number_format($b['balance'], 0, '.', ',');
+            $data['in'] = number_format($in, 0, ',', '.');
+            $data['out'] = number_format($out['out'], 0, ',', '.');
+            $data['balance'] = number_format($b['balance'], 0, ',', '.');
+
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('templates/topbar');

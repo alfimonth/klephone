@@ -47,7 +47,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
-<script src="<?= base_url('assets/') ?>js/cl.js"></script>
+<script src="<?= base_url('assets/') ?>js/jq.js"></script>
 
 <script>
     $('.alert-message').alert().delay(3000).slideUp('slow');

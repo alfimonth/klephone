@@ -15,23 +15,7 @@
         </div>
     </div>
     <div class="row ">
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Stok</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $stok ?></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -61,12 +45,12 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">5.000.000</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Rp<?= $out ?></div>
                                 </div>
                                 <div class="col">
-                                    <div class="progress progress-sm mr-2">
+                                    <!-- <div class="progress progress-sm mr-2">
                                         <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -85,11 +69,28 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Jumlah Suplai</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                Jumlah Pendapatan</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp<?= $in ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-truck fa-2x text-gray-300"></i>
+                            <i class="fas fa-money fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Jumlah Stok</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $stok ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -122,7 +123,7 @@
                                         <th>Tanggal</th>
                                         <th>Costumer</th>
                                         <th>Produk</th>
-                                        <th>Harga</th>
+                                        <th>Pendapatan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -131,7 +132,7 @@
                                             <td scope="row"><?= $t['date'] ?></td>
                                             <td scope="row"><?= $t['cos'] ?></td>
                                             <td scope="row"><?= $t['brand'] . ' ' . $t['tipe'] ?></td>
-                                            <td scope="row"><?= $t['harga'] ?></td>
+                                            <td scope="row" class="right">Rp<?= number_format((intval($t['harga']) - (intval($t['diskon']))), 0, '.', ',');  ?></td>
                                         </tr>
 
 
@@ -180,9 +181,9 @@
                                             $date = strtotime($hs['date']);
                                             ?>
                                             <td scope="row"><?= date('d F Y, h:i:s', $date) ?></td>
-                                            <td scope="row"><?= $hs['id_sup'] ?></td>
-                                            <td scope="row"><?= $hs['id_produk'] ?></td>
-                                            <td scope="row">Rp<?= number_format($hs['harga'], 0, '.', ',');  ?></td>
+                                            <td scope="row"><?= $hs['sup'] ?></td>
+                                            <td scope="row"><?= $hs['brand'] . ' ' . $hs['tipe'] ?></td>
+                                            <td scope="row" class="right">Rp<?= number_format($hs['harga'], 0, '.', ',');  ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

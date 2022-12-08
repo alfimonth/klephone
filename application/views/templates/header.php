@@ -24,6 +24,7 @@
     <link href="<?= base_url('assets/') ?>css/sba-dmin-3.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/') ?>css/main6.css" rel="stylesheet">
     <link href="<?= base_url('assets/') ?>css/style1.css" rel="stylesheet">
+    <link href="<?= base_url('assets/') ?>css/print.css" rel="stylesheet">
 
 
 </head>

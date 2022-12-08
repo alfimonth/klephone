@@ -47,4 +47,19 @@ class ModelSup extends CI_Model
 
         $this->db->insert('history_sup', $data);
     }
+    public function joinHisCosProduk()
+    {
+        $this->db->select('history_sup.id as id, supplier.name as sup, history_sup.harga as harga, history_sup.date, brand.name as brand, produk.tipe as tipe');
+        $this->db->from('history_sup');
+        $this->db->join('supplier', 'history_sup.id_sup=supplier.id');
+        $this->db->join('produk', 'history_sup.id_produk=produk.id');
+        $this->db->join('brand', 'produk.id_brand= brand.id');
+        return $this->db->get();
+    }
+    public function out()
+    {
+        $this->db->select('sum(harga) as `out`');
+        $this->db->from('history_sup');
+        return $this->db->get();
+    }
 }

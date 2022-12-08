@@ -22,4 +22,11 @@ class ModelTran extends CI_Model
         $this->db->join('brand', 'produk.id_brand= brand.id');
         return $this->db->get();
     }
+    public function in()
+    {
+        $this->db->select('sum(harga) as `h`, sum(diskon) as `d`');
+        $this->db->from('transaksi');
+        $p = $this->db->get()->row_array();
+        return intval($p['h']) - intval($p['d']);
+    }
 }
