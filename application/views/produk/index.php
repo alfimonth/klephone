@@ -24,7 +24,9 @@
                             <th scope="col" class="center">Varian</th>
                             <th scope="col" class="center">Stok</th>
                             <th scope="col">Harga</th>
-                            <th scope="col" class="center  no-print">Opsi</th>
+                            <?php if ($role == 1 || $role == 2) : ?>
+                                <th scope="col" class="center  no-print">Opsi</th>
+                            <?php endif; ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,14 +41,16 @@
                                 $harga = 'Rp' . number_format($p['harga'], 0, ',', '.');
                                 ?>
                                 <td class="right pr-md-2 fit"><?= $harga ?></td>
-                                <td class="center opsi  no-print">
-                                    <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge">
-                                        <i class="fas fa-edit fa-2x" style="color:#217D3B;"> </i>
-                                    </a>
-                                    <a href="" class="badge badge hapus" data-toggle="modal" data-target="#hapusModal" data-id="<?= $p['id']; ?>" data-nama="<?= $p['name'] . ' ' . $p['tipe'] ?>">
-                                        <i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i>
-                                    </a>
-                                </td>
+                                <?php if ($role == 1 || $role == 2) : ?>
+                                    <td class="center opsi  no-print">
+                                        <a href="<?= base_url('produk/edit/') . $p['id']; ?>" class="badge badge">
+                                            <i class="fas fa-edit fa-2x" style="color:#217D3B;"> </i>
+                                        </a>
+                                        <a href="" class="badge badge hapus" data-toggle="modal" data-target="#hapusModal" data-id="<?= $p['id']; ?>" data-nama="<?= $p['name'] . ' ' . $p['tipe'] ?>">
+                                            <i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i>
+                                        </a>
+                                    </td>
+                                <?php endif  ?>
                             </tr>
 
 

@@ -13,6 +13,7 @@ class Brand extends CI_Controller
     public function index()
     {
         $data['title'] = 'Brand';
+        $data['role'] = $this->session->userdata('role_id');
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['brand'] = $this->ModelProduk->getBrandTipe();
 

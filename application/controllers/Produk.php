@@ -24,6 +24,7 @@ class Produk extends CI_Controller
         if ($this->form_validation->run() == false) {
 
             $data['title'] = 'Produk';
+            $data['role'] = $this->session->userdata('role_id');
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
             $data['produk'] = $this->ModelProduk->joinBrandProduk("Produk.id,produk.img,brand.name,produk.tipe,produk.memory,produk.harga,produk.stok")->result_array();
             $data['sup'] = $this->ModelSup->getSup()->result_array();

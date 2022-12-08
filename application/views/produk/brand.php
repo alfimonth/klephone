@@ -17,7 +17,9 @@
                         <th scope="col" class="fit-img center">Logo</th>
                         <th scope="col">Brand</th>
                         <th scope="col" class="center ">Jumlah Tipe</th>
-                        <th scope="col" class="center ">Opsi</th>
+                        <?php if ($role == 1 || $role == 2) : ?>
+                            <th scope="col" class="center ">Opsi</th>
+                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,11 +28,12 @@
                             <td class="center"><img class="img-product" src="<?= base_url('assets/img/brand/' . $b['logo']) ?>" alt=""></td>
                             <td scope="row"><?= $b['name'] ?></td>
                             <td scope="row" class="center"><?= $b['total_tipe'] ?></td>
-
-                            <td class="center opsi">
-                                <a href="<?= base_url('brand/edit/') . $b['id']; ?>" class="badge badge"><i class="fas fa-edit fa-2x" style="color:#217D3B;"></i></a>
-                                <a href="#" class="badge badge hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i></a>
-                            </td>
+                            <?php if ($role == 1 || $role == 2) : ?>
+                                <td class="center opsi">
+                                    <a href="<?= base_url('brand/edit/') . $b['id']; ?>" class="badge badge"><i class="fas fa-edit fa-2x" style="color:#217D3B;"></i></a>
+                                    <a href="#" class="badge badge hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i></a>
+                                </td>
+                            <?php endif ?>
                         </tr>
 
 
