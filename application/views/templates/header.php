@@ -11,6 +11,9 @@
 
     <title><?= $title ?> | Klephone</title>
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/img/logo-sml.ico') ?>" type="image/x-icon">
+
     <!-- Custom fonts for this template-->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="<?= base_url('assets/') ?>css/tab.css" rel="stylesheet">

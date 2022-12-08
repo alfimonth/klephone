@@ -8,7 +8,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title><?= $title ?> - Klephone</title>
+    <title><?= $title ?> | Klephone</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/img/logo-sml.ico') ?>" type="image/x-icon">
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
