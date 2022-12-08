@@ -5,7 +5,7 @@ $role = $this->session->userdata('role_id');
 <ul class="navbar-nav  sidebar sidebar-dark accordion toggled no-print" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center" href="<?= base_url() ?>">
         <div class="sidebar-brand-icon">
             <img src=" <?= base_url('assets/img/logo-sml.png'); ?> " style=" width :40%" alt="">
         </div>
