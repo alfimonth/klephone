@@ -54,6 +54,7 @@ class ModelSup extends CI_Model
         $this->db->join('supplier', 'history_sup.id_sup=supplier.id');
         $this->db->join('produk', 'history_sup.id_produk=produk.id');
         $this->db->join('brand', 'produk.id_brand= brand.id');
+        $this->db->order_by('history_sup.id DESC');
         return $this->db->get();
     }
     public function out()
