@@ -20,6 +20,7 @@ class ModelTran extends CI_Model
         $this->db->join('costumer', 'transaksi.id_costumer=costumer.id');
         $this->db->join('produk', 'transaksi.id_produk=produk.id');
         $this->db->join('brand', 'produk.id_brand= brand.id');
+        $this->db->order_by('transaksi.id DESC');
         return $this->db->get();
     }
     public function in()

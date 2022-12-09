@@ -128,8 +128,11 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach ($tran as $t) : ?>
+                                        <?php
+                                        $date = strtotime($t['date']);
+                                        ?>
                                         <tr>
-                                            <td scope="row"><?= $t['date'] ?></td>
+                                            <td scope="row"><?= date('d F Y, h:i:s', $date) ?></td>
                                             <td scope="row"><?= $t['cos'] ?></td>
                                             <td scope="row"><?= $t['brand'] . ' ' . $t['tipe'] ?></td>
                                             <td scope="row" class="right">Rp<?= number_format((intval($t['harga']) - (intval($t['diskon']))), 0, '.', ',');  ?></td>
