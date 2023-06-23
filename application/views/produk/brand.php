@@ -31,7 +31,9 @@
                             <?php if ($role == 1 || $role == 2) : ?>
                                 <td class="center opsi">
                                     <a href="<?= base_url('brand/edit/') . $b['id']; ?>" class="badge badge"><i class="fas fa-edit fa-2x" style="color:#217D3B;"></i></a>
-                                    <a href="#" class="badge badge hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i></a>
+                                    <?php if ($b['total_tipe'] < 1) : ?>
+                                        <a href="#" class="badge badge hapus-brand" data-toggle="modal" data-target="#hapusBrandModal" data-id="<?= $b['id']; ?>" data-nama="<?= $b['name'] ?>"><i class="fas fa-trash-alt fa-2x" style="color:#CF0210;"></i></a>
+                                    <?php endif ?>
                                 </td>
                             <?php endif ?>
                         </tr>

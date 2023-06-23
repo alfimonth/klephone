@@ -42,14 +42,10 @@
 
     <div class="row">
         <?php foreach ($produk as $p) : ?>
-            <?php
-            // var_dump($produk);
-            // die; 
-            ?>
             <!-- Page Card -->
             <div class="card mb-3 ml-3 col-lg-5">
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <img src="<?= base_url('assets/img/upload/') . $p['img']; ?>" class="img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
