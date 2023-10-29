@@ -99,6 +99,11 @@
                                         </button>
 
                                     </div>
+                                    <div class="email mb-4">
+                                        <textarea type="text" class="form form-control" name="deskription" id="deskription" aria-describedby="emailHelp"><?= set_value('deskription') ?></textarea>
+                                        <label for="deskription" class="label">Deskripsi</label>
+                                        <?= form_error('deskription',  '<small class="text-danger">', '</small>') ?>
+                                    </div>
 
 
 

@@ -98,7 +98,11 @@
                                             <span class="img-text">Pilih Gambar</span>
                                             <input type="file" class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
                                         </button>
-
+                                    </div>
+                                    <div class="email mb-4">
+                                        <textarea type="text" class="form form-control" name="description" id="description" aria-describedby="emailHelp"value="<?= $p['description'] ?>"></textarea>
+                                        <label for="description" class="label">Deskripsi</label>
+                                        <?= form_error('description',  '<small class="text-danger">', '</small>') ?>
                                     </div>
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                         Submit

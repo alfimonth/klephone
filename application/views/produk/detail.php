@@ -13,7 +13,8 @@
                             <img src="<?= base_url('assets/img/upload/') . $p['img']; ?>" class="img-fluid rounded-start" alt="Product Image">
                         </div>
                         <div class="col-md-8">
-                            <h5 class="card-title">Prosesor: <?= $p['cpu']; ?></h5>
+                            <h5 class="card-title">Deskripsi: <?= $p['description']; ?></h5>
+                            <p class="card-text">Processor: <?= $p['cpu']; ?></p>
                             <p class="card-text">Memory: <?= $p['memory']; ?> GB</p>
                             <p class="card-text">Layar: <?= $p['layar']; ?></p>
                             <p class="card-text">Kamera Belakang: <?= $p['bcam']; ?> MP</p>
