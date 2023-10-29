@@ -1,4 +1,5 @@
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-lg-8">
 
@@ -13,7 +14,7 @@
                             <img src="<?= base_url('assets/img/upload/') . $p['img']; ?>" class="img-fluid rounded-start" alt="Product Image">
                         </div>
                         <div class="col-md-8">
-                            <h5 class="card-title">Deskripsi: <?= $p['description']; ?></h5>
+                            <h5 class="card-title"><?= $p['description']; ?></h5>
                             <p class="card-text">Processor: <?= $p['cpu']; ?></p>
                             <p class="card-text">Memory: <?= $p['memory']; ?> GB</p>
                             <p class="card-text">Layar: <?= $p['layar']; ?></p>
