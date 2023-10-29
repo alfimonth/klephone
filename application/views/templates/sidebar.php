@@ -2,7 +2,7 @@
 <?php
 $role = $this->session->userdata('role_id');
 ?>
-<ul class="navbar-nav  sidebar sidebar-dark accordion toggled no-print" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion toggled no-print position-relative" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center" href="<?= base_url() ?>">
@@ -123,7 +123,7 @@ $role = $this->session->userdata('role_id');
     <!-- Nav Item - Utilities Collapse Menu -->
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+
 
 
 
@@ -131,12 +131,16 @@ $role = $this->session->userdata('role_id');
     <!-- Divider -->
     <!-- <hr class="sidebar-divider"> -->
 
+    <hr class="sidebar-divider d-none d-md-block">
+
 
 
 
     <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    <div class=" position-sticky bottom-0 w-auto" style="right: 0; left:0; width: 100%; background-color: #40b076c0; display: flex;">
+        <div class="text-center d-none d-md-inline w-100">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
     </div>
 
 </ul>
