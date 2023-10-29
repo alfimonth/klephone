@@ -13,7 +13,6 @@ class Produk extends CI_Controller
     public function index()
     {
         // validasi
-
         $this->form_validation->set_rules('id_produk', 'id_produk', 'required', [
             'required' => 'Harap pilih Produk',
         ]);

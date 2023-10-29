@@ -18,11 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 
     <!-- Custom styles for this template-->
-<<<<<<< HEAD
     <link href="<?= base_url() ?>assets/css/sb-admin-3.css" rel="stylesheet" />
-=======
-    <link href="<?= base_url() ?>assets/css/sba-dmin-3.min.css" rel="stylesheet" />
->>>>>>> 6db5d67772865ca476c3cfe0d29abbf4fa800280
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/auth.css">
     <link href="<?= base_url('assets/') ?>css/main6.css" rel="stylesheet">
 </head>
