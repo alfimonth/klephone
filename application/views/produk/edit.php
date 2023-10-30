@@ -34,6 +34,11 @@
                                         <label for="tipe" class="label">Tipe</label>
                                         <?= form_error('tipe',  '<small class="text-danger">', '</small>') ?>
                                     </div>
+                                    <div class="email mb-4">
+                                        <textarea type="text" class="form form-control" name="description" id="description" aria-describedby="emailHelp" value="<?= $p['description'] ?>"></textarea>
+                                        <label for="description" class="label">Deskripsi</label>
+                                        <?= form_error('description',  '<small class="text-danger">', '</small>') ?>
+                                    </div>
                                     <div class="form-group row mb-4">
                                         <div class="password col-sm-6 mb-4 mb-sm-0">
                                             <?php $memory = explode("/", $p['memory']) ?>
@@ -99,11 +104,7 @@
                                             <input type="file" class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
                                         </button>
                                     </div>
-                                    <div class="email mb-4">
-                                        <textarea type="text" class="form form-control" name="description" id="description" aria-describedby="emailHelp"value="<?= $p['description'] ?>"></textarea>
-                                        <label for="description" class="label">Deskripsi</label>
-                                        <?= form_error('description',  '<small class="text-danger">', '</small>') ?>
-                                    </div>
+
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                         Submit
                                     </button>
