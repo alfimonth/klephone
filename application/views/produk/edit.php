@@ -17,6 +17,19 @@
                                 <form class="center col-md-12" method="POST" action="" enctype="multipart/form-data">
                                     <?php $p = $produk[0]; ?>
                                     <input type="hidden" required class="form form-control" name="id" id="id" value="<?= $id ?>" />
+                                    <div class="email mb-0">
+                                        <div class="img-area" data-img="">
+                                            <img src="<?= base_url('assets/img/upload/') . $p['img'] ?>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="email mb-4">
+                                        <input type="hidden" name="old-pict" id="old-pict" value="<?= $p['img'] ?>">
+                                        <button type='button' class="select-file form form-control">
+                                            <i class="fa fa-fw fa-camera"></i>
+                                            <span class="img-text">Ubah Gambar</span>
+                                            <input type="file" class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
+                                        </button>
+                                    </div>
                                     <div class="email mb-4">
                                         <select name="brand" class="form form-control" id="brand">
                                             <option value=''>Pilih Brand</option>
@@ -91,19 +104,8 @@
                                             <?= form_error('stok',  '<small class="text-danger">', '</small>') ?>
                                         </div>
                                     </div>
-                                    <div class="email mb-0">
-                                        <div class="img-area" data-img="">
-                                            <img src="<?= base_url('assets/img/upload/') . $p['img'] ?>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="email mb-4">
-                                        <input type="hidden" name="old-pict" id="old-pict" value="<?= $p['img'] ?>">
-                                        <button type='button' class="select-file form form-control">
-                                            <i class="fa fa-fw fa-camera"></i>
-                                            <span class="img-text">Pilih Gambar</span>
-                                            <input type="file" class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
-                                        </button>
-                                    </div>
+
+
 
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                         Submit

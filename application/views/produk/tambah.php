@@ -14,6 +14,22 @@
                                     <h1 class="h4">Tambah Produk</h1>
                                 </div>
                                 <form class="center col-md-12" method="POST" action="" enctype="multipart/form-data">
+                                    <div class="email mb-0">
+                                        <div class="img-area " data-img="">
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="email mb-4">
+                                        <button type='button' class="select-file form form-control">
+                                            <i class="fa fa-fw fa-camera"></i>
+                                            <span class="img-text">Pilih Gambar</span>
+                                            <input type="file" required class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
+                                        </button>
+
+                                    </div>
+
                                     <div class="email mb-4">
                                         <select name="brand" class="form form-control" id="brand">
                                             <option value=''>Pilih Brand</option>
@@ -93,21 +109,7 @@
                                             <?= form_error('stok',  '<small class="text-danger">', '</small>') ?>
                                         </div>
                                     </div>
-                                    <div class="email mb-0">
-                                        <div class="img-area " data-img="">
 
-
-                                        </div>
-                                    </div>
-
-                                    <div class="email mb-4">
-                                        <button type='button' class="select-file form form-control">
-                                            <i class="fa fa-fw fa-camera"></i>
-                                            <span class="img-text">Pilih Gambar</span>
-                                            <input type="file" required class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
-                                        </button>
-
-                                    </div>
 
 
 
@@ -134,7 +136,7 @@
 
                                         if (tipeValue !== '' && brandName !== '') {
                                             const prompt = `Deskripsikan HP ${brandName} ${tipeValue} secara singkat dibawah dibawah 100 karakter`;
-                                            const apiKey = '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';
+                                            const apiKey = '<?= $apikey ?>';
                                             const apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
 
                                             let dotCount = 0;
