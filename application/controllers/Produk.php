@@ -12,6 +12,7 @@ class Produk extends CI_Controller
 
     public function index()
     {
+
         // validasi
         $this->form_validation->set_rules('id_produk', 'id_produk', 'required', [
             'required' => 'Harap pilih Produk',
@@ -82,6 +83,10 @@ class Produk extends CI_Controller
     }
     public function tambah()
     {
+        # Load phpdotenv
+
+        $data['apikey'] = $_ENV['API_KEYGPT'];
+
         $data['title'] = 'Tambah Produk';
         $data['brand'] = $this->ModelProduk->getBrand()->result_array();
 
@@ -116,6 +121,33 @@ class Produk extends CI_Controller
             $this->load->view('produk/tambah');
             $this->load->view('templates/auth_footer');
         } else {
+
+
+            $judul_hp = $data['brand'][$this->input->post('brand', true) - 1]['name'] . ' ' . $this->input->post('tipe', true);
+            $api_key = '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';
+            $url = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $api_key
+            );
+            $data = array(
+                'prompt' => 'Deskripsikan HP ' . $judul_hp . 'secara singkat dibawah dibawah 100 karakter',
+                'max_tokens' => 100,
+                'temperature' => 0.6,
+                'top_p' => 1,
+                'frequency_penalty' => 0,
+                'presence_penalty' => 0
+            );
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            $deskripsi = json_decode($response, true)['choices'][0]['text'];
+
+
             $this->upload->do_upload('image');
             if ($this->upload->do_upload('image')) {
                 $image = $this->upload->data();
@@ -133,6 +165,7 @@ class Produk extends CI_Controller
                 'bcam' => $this->input->post('bcam', true),
                 'battery' => $this->input->post('battery', true),
                 'cpu' => $this->input->post('cpu', true),
+                'description' => $deskripsi,
                 'harga' => $this->input->post('harga', true),
                 'stok' => $this->input->post('stok', true),
                 'img' => $gambar

@@ -86,6 +86,10 @@ a:hover {
 	font-size: 0.8rem;
 }
 
+.email textarea {
+	height: 100px;
+}
+
 @font-face {
 	font-family: "latoregular";
 	src: url("../font/lato-regular-webfont.woff2") format("woff2"),

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -11,3 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/userguide3/general/hooks.html
 |
 */
+
+require_once __DIR__ . '\..\..\vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(APPPATH);
+$dotenv->load();

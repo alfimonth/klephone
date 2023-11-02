@@ -14,6 +14,22 @@
                                     <h1 class="h4">Tambah Produk</h1>
                                 </div>
                                 <form class="center col-md-12" method="POST" action="" enctype="multipart/form-data">
+                                    <div class="email mb-0">
+                                        <div class="img-area " data-img="">
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="email mb-4">
+                                        <button type='button' class="select-file form form-control">
+                                            <i class="fa fa-fw fa-camera"></i>
+                                            <span class="img-text">Pilih Gambar</span>
+                                            <input type="file" required class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
+                                        </button>
+
+                                    </div>
+
                                     <div class="email mb-4">
                                         <select name="brand" class="form form-control" id="brand">
                                             <option value=''>Pilih Brand</option>
@@ -33,6 +49,15 @@
                                         <label for="tipe" class="label">Tipe</label>
                                         <?= form_error('tipe',  '<small class="text-danger">', '</small>') ?>
                                     </div>
+
+
+                                    <div class="email mb-4">
+                                        <textarea type="text" class="form form-control" name="description" id="description" aria-describedby="emailHelp"><?= set_value('description') ?>
+                                        </textarea>
+                                        <label for="description" class="label">Deskripsi</label>
+                                        <?= form_error('description',  '<small class="text-danger">', '</small>') ?>
+                                    </div>
+
                                     <div class="form-group row mb-4">
                                         <div class="password col-sm-6 mb-4 mb-sm-0">
                                             <input type="text" required class="form form-control" name="ram" id="ram" value="<?= set_value('ram') ?>" />
@@ -84,21 +109,7 @@
                                             <?= form_error('stok',  '<small class="text-danger">', '</small>') ?>
                                         </div>
                                     </div>
-                                    <div class="email mb-0">
-                                        <div class="img-area " data-img="">
 
-
-                                        </div>
-                                    </div>
-
-                                    <div class="email mb-4">
-                                        <button type='button' class="select-file form form-control">
-                                            <i class="fa fa-fw fa-camera"></i>
-                                            <span class="img-text">Pilih Gambar</span>
-                                            <input type="file" required class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
-                                        </button>
-
-                                    </div>
 
 
 
@@ -116,6 +127,52 @@
                                     </a>
 
                                 </form>
+                                <script>
+                                    document.getElementById('tipe').addEventListener('blur', function() {
+                                        document.getElementById('description').value = "Sedang digenerate oleh AI...";
+                                        const brandElement = document.getElementById('brand');
+                                        const brandName = brandElement.options[brandElement.selectedIndex].text;
+                                        const tipeValue = this.value;
+
+                                        if (tipeValue !== '' && brandName !== '') {
+                                            const prompt = `Deskripsikan HP ${brandName} ${tipeValue} secara singkat dibawah dibawah 100 karakter`;
+                                            const apiKey = '<?= $apikey ?>';
+                                            const apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
+
+                                            let dotCount = 0;
+                                            const interval = setInterval(() => {
+                                                const dots = '.'.repeat(dotCount % 4);
+                                                document.getElementById('description').value = `Sedang digenerate oleh AI${dots}`;
+                                                dotCount++;
+                                            }, 500);
+
+
+                                            fetch(apiUrl, {
+                                                    method: 'POST',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        'Authorization': `Bearer ${apiKey}`
+                                                    },
+                                                    body: JSON.stringify({
+                                                        prompt: prompt,
+                                                        max_tokens: 100,
+                                                        temperature: 0.6,
+                                                        top_p: 1,
+                                                        frequency_penalty: 0,
+                                                        presence_penalty: 0
+                                                    }),
+                                                })
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    clearInterval(interval);
+                                                    console.log(data);
+                                                    const deskripsi = data.choices[0].text.replace(/\n\nHP\s*/g, '');
+                                                    document.getElementById('description').value = deskripsi;
+                                                })
+                                                .catch(error => console.error('Error:', error));
+                                        }
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>

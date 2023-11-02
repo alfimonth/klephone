@@ -17,6 +17,19 @@
                                 <form class="center col-md-12" method="POST" action="" enctype="multipart/form-data">
                                     <?php $p = $produk[0]; ?>
                                     <input type="hidden" required class="form form-control" name="id" id="id" value="<?= $id ?>" />
+                                    <div class="email mb-0">
+                                        <div class="img-area" data-img="">
+                                            <img src="<?= base_url('assets/img/upload/') . $p['img'] ?>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="email mb-4">
+                                        <input type="hidden" name="old-pict" id="old-pict" value="<?= $p['img'] ?>">
+                                        <button type='button' class="select-file form form-control">
+                                            <i class="fa fa-fw fa-camera"></i>
+                                            <span class="img-text">Ubah Gambar</span>
+                                            <input type="file" class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
+                                        </button>
+                                    </div>
                                     <div class="email mb-4">
                                         <select name="brand" class="form form-control" id="brand">
                                             <option value=''>Pilih Brand</option>
@@ -33,6 +46,11 @@
                                         <input type="text" required class="form form-control" name="tipe" id="tipe" aria-describedby="emailHelp" value="<?= $p['tipe'] ?>" />
                                         <label for="tipe" class="label">Tipe</label>
                                         <?= form_error('tipe',  '<small class="text-danger">', '</small>') ?>
+                                    </div>
+                                    <div class="email mb-4">
+                                        <textarea type="text" class="form form-control" name="description" id="description" aria-describedby="emailHelp" value="<?= $p['description'] ?>"></textarea>
+                                        <label for="description" class="label">Deskripsi</label>
+                                        <?= form_error('description',  '<small class="text-danger">', '</small>') ?>
                                     </div>
                                     <div class="form-group row mb-4">
                                         <div class="password col-sm-6 mb-4 mb-sm-0">
@@ -86,20 +104,9 @@
                                             <?= form_error('stok',  '<small class="text-danger">', '</small>') ?>
                                         </div>
                                     </div>
-                                    <div class="email mb-0">
-                                        <div class="img-area" data-img="">
-                                            <img src="<?= base_url('assets/img/upload/') . $p['img'] ?>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="email mb-4">
-                                        <input type="hidden" name="old-pict" id="old-pict" value="<?= $p['img'] ?>">
-                                        <button type='button' class="select-file form form-control">
-                                            <i class="fa fa-fw fa-camera"></i>
-                                            <span class="img-text">Pilih Gambar</span>
-                                            <input type="file" class="form form-control" id="file" name="image" id="image" aria-describedby="emailHelp" />
-                                        </button>
 
-                                    </div>
+
+
                                     <button type="submit" class="btn btn-success btn-user btn-block mt-5 mb-3">
                                         Submit
                                     </button>
