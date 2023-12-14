@@ -10,9 +10,11 @@
             <?= $this->session->flashdata('pesan'); ?>
 
             <!-- Page Heading -->
+            <?php if ($role == 1 || $role == 2) : ?>
             <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success mb-3 no-print"><i class="fas fa-plus-circle"></i> Tambah produk</a>
             <a data-target="#suplaiModal" data-toggle="modal" class="btn btn-success mb-3  no-print"><i class="fas fa-truck"></i> Suplai</a>
             <a class="btn btn-success mb-3 print" onclick="window.print()"><i class=" fas fa-print no-print"></i> Print</a>
+            <?php endif; ?>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <div>
 

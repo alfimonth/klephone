@@ -9,7 +9,10 @@
             <?= $this->session->flashdata('pesan'); ?>
 
             <!-- Page Heading -->
+            <?php if ($role == 1 || $role == 2) : ?>
             <a href="<?= base_url('brand/tambah') ?>" class="btn btn-success mb-3"><i class="fas fa-file-alt"></i> Tambah brand</a>
+
+            <?php endif; ?>
             <!-- data-toggle="modal" data-target="#bukuBaruModal" -->
             <table class="table table-hover" id="datatablesSimple">
                 <thead>

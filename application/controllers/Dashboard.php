@@ -188,7 +188,7 @@
 
                 $this->ModelRekening->simpanRek($data);
 
-                // mengirim alert setelah berhsil
+                // mengirim alert setelah berhasil
                 $this->session->set_flashdata('pesan', "<div class='alert alert-success alert-message' role='alert'>Transaksi berhasil</div>");
                 redirect('dashboard');
             }
