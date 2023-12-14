@@ -8,6 +8,15 @@ class Produk extends CI_Controller
     {
         parent::__construct();
         cek_login();
+        $this->load->library('unit_test');
+    }
+
+    
+    public function test($test, $expected_result, $test_name='', $description='')
+    {
+
+        echo $this->unit->run($test, $expected_result, $test_name, $description);
+        
     }
 
     public function index()
